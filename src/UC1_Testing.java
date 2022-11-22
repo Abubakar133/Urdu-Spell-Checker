@@ -1,6 +1,3 @@
-import static org.junit.jupiter.api.Assertions.*;
-
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,6 +9,7 @@ import BussinessLogic_Layer.Make_Word;
 import BussinessLogic_Layer.ReadXML;
 import Database_Layer.DatabasePG;
 import Database_Layer.DatabaseWord;
+import Database_Layer.Database_Retrive;
 
 
 class UC1_Testing {
@@ -20,7 +18,7 @@ class UC1_Testing {
 	
 	@Test
 	@DisplayName("Check Word Data")
-	public  void assertnull()
+	public  void assertEqua()
 	{
 		Make_Word t=new Make_Word() ;
 		
@@ -36,8 +34,8 @@ class UC1_Testing {
 	}
 	
 	@Test
-	@DisplayName("Check words")
-	public  void assertnull2()
+	@DisplayName("Check array List")
+	public  void assertequal1()
 	{
 		DatabaseWord t=new DatabaseWord() ;
 		Make_Word t2=new Make_Word() ;
@@ -52,8 +50,40 @@ class UC1_Testing {
 	}
 	
 	@Test
-	@DisplayName("Check words")
-	public  void assertnull3()
+	@DisplayName("Db con 1")
+	public  void DB1()
+	{
+		Database_Retrive t=new Database_Retrive() ;
+		
+		
+		Assertions.assertTrue(t.CheckConnection());
+		
+	}
+	
+	
+
+	@Test
+	@DisplayName("Db con 2")
+	public  void DB2()
+	{
+		DatabasePG t=new DatabasePG() ;
+		Assertions.assertTrue(DatabasePG.CheckConnection());
+		
+	}
+	
+	@Test
+	@DisplayName("Db con 3")
+	public  void DB3()
+	{
+		DatabaseWord t=new DatabaseWord() ;
+		
+		Assertions.assertTrue(t.CheckConnection());
+		
+	}
+	
+	@Test
+	@DisplayName("Check Db Data")
+	public  void assertequal3()
 	{
 		ReadXML t=new ReadXML() ;
 		DatabasePG t2=new DatabasePG() ;
@@ -66,5 +96,7 @@ class UC1_Testing {
 		Assertions.assertEquals("Abubakar",name);
 		
 	}
+	
+	
 
 }

@@ -79,13 +79,13 @@ public class Make_Word {
 		
       HashMap <String,Integer>T3=new HashMap<>(); 
         
-        for(String i1 : word_List) {
-        if (T3.containsKey(i1)) {
-         T3.put(i1,T3.get(i1)+1);
+        for(String count : word_List) {
+        if (T3.containsKey(count)) {
+         T3.put(count,T3.get(count)+1);
          
          }
         else{ 
-            T3.put (i1,1);
+            T3.put (count,1);
          } 
         }
         for (Map.Entry<String,Integer>entry:T3.entrySet()) 

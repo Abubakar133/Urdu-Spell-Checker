@@ -16,7 +16,8 @@ public class DatabaseWord {
 		
 		
 	}
-	static List<String> word_DB2=new ArrayList();
+	static boolean t=false;
+	static List<String> word_DB2=new ArrayList<String>();
 public static void Word_Data() {
 	Make_Word obj=new Make_Word();
 	List<String> word_DB=word_DB=obj.Word_List();
@@ -40,6 +41,7 @@ public static void Word_Data() {
         		
         		}
         		JOptionPane.showMessageDialog(null,"Word Sent Successfully in Database");
+        		t=true;
         	con.close();
         }
         catch(SQLException e) {
@@ -49,9 +51,20 @@ public static void Word_Data() {
 		
 	}
 
-    public  List Test() {
+    public  List<String> Test() {
 	
 	      return word_DB2; 
         }
-
+public static boolean CheckConnection() {
+		
+	Word_Data();
+		if(t==true) {
+			return true;
+		}
+		else {
+			return false;
+		}
+		
+		
+	}
 }

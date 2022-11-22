@@ -8,23 +8,17 @@ import javax.swing.border.EmptyBorder;
 import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.annotation.processing.FilerException;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
 
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.awt.event.ActionEvent;
-import javax.swing.border.LineBorder;
-
 import BussinessLogic_Layer.Make_Word;
 import BussinessLogic_Layer.ReadXML;
 
 import javax.swing.JTextField;
-import javax.swing.JCheckBox;
 import javax.swing.JRadioButton;
-import java.awt.Window.Type;
 import java.awt.Font;
 
 public class words_Database extends JFrame {

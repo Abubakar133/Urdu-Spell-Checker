@@ -17,8 +17,8 @@ public class DatabasePG {
 	public DatabasePG(){
 		
 	}
-	
-	static List<String> A_Str2=new ArrayList();
+	static boolean t=false;
+	static List<String> A_Str2=new ArrayList<String>();
 	public static void PG_Data() {
 		ReadXML obj=new ReadXML();
 		List<String> A_Str=obj.RA();
@@ -32,11 +32,11 @@ public class DatabasePG {
 		try {
 	    	Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/spell_checker","root","");
 	    	
-	    	for(int i=0;i<P_Str.size();i++) {
+	    	for(int j=0;j<P_Str.size();j++) {
 	    		try {
 	    			
 	    		
-		        PreparedStatement st = con.prepareStatement("insert into paragraph values("+null+",'"+T_Str.get(i)+"','"+A_Str.get(i)+"','"+P_Str.get(i)+"')");
+		        PreparedStatement st = con.prepareStatement("insert into paragraph values("+null+",'"+T_Str.get(j)+"','"+A_Str.get(j)+"','"+P_Str.get(j)+"')");
 		        st.execute();
 	    		
 		         
@@ -45,6 +45,7 @@ public class DatabasePG {
 		        	JOptionPane.showMessageDialog(null,"Currepted File Found");
 			    }
 	    	}
+	    	t=true;
 	    	con.close();
 	    	JOptionPane.showMessageDialog(null,"File inserted Succesfully in Paragraph Table"); 
 	    }
@@ -54,8 +55,21 @@ public class DatabasePG {
 
 	}
 	
-	public List Test() {
+	public List<String> Test() {
 		return A_Str2;
+		
+	}
+	
+   public static boolean CheckConnection() {
+		
+	   PG_Data();
+		if(t==true) {
+			return true;
+		}
+		else {
+			return false;
+		}
+		
 		
 	}
 	

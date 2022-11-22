@@ -11,11 +11,12 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 public class Database_Retrive {
-	Database_Retrive(){
+	public Database_Retrive(){
 		
 		
 	}
 	 
+	static boolean t=false;
 
 	public static List<String> Word() {
 		 List<String> A_Str = new ArrayList<String>();
@@ -35,7 +36,7 @@ public class Database_Retrive {
 	    	        
 	    	        
 	    	      }
-
+                t=true;
 	    	      con.close();
 	    	      JOptionPane.showMessageDialog(null,"FIle Retrived Successfully please wait....");
 	    	   }
@@ -49,6 +50,17 @@ public class Database_Retrive {
 		return A_Str;
 	}
 
+	public static boolean CheckConnection() {
 		
+		Word();
+		if(t==true) {
+			return true;
+		}
+		else {
+			return false;
+		}
+		
+		
+	}
 	
 }
