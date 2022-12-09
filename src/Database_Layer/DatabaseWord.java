@@ -64,7 +64,22 @@ public class DatabaseWord {
 
 	}
 
-	
+	public void delete(int id) {
+
+		try {
+			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/spell_checker", "root", "");
+
+			String query = "DELETE FROM word WHERE word_id = '" + id + "'";
+			PreparedStatement st1 = con.prepareStatement(query);
+			st1.execute();
+
+			JOptionPane.showMessageDialog(null, "Word Delete Successfully in Database");
+
+			con.close();
+		} catch (SQLException e) {
+			JOptionPane.showMessageDialog(null, "Connection Not Found");
+		}
+	}
 
 	public void update(String word, int id, int fre) {
 		try {
