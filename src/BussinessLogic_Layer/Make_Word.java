@@ -22,7 +22,7 @@ public class Make_Word {
     
     
  
-    static DatabaseWord T1= new DatabaseWord();
+    static DatabaseWord dbWord= new DatabaseWord();
     
     public void controller() {
     	
@@ -31,14 +31,14 @@ public class Make_Word {
     	
     	List<String> c2 = Word_Creator(c1);
     	HashMap_Fun(c2);
-    	T1.Word_Data();
+    	dbWord.Word_Data();
     }
     
     public void Word_Single(String Word) {
     	w_DB.add(Word);
     	
     	F_DB.add(1);
-    	T1.Word_Data();
+    	dbWord.Word_Data();
     }
     
 	@SuppressWarnings("unchecked")
