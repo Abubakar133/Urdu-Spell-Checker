@@ -41,4 +41,9 @@ public class Read_words {
 		}
 
 	}
+
+	public List returnword() {
+
+		return A_Str;
+	}
 }
