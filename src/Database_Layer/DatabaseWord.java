@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,8 +29,8 @@ public class DatabaseWord {
 		try {
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/spell_checker", "root", "");
 
-			PreparedStatement st1 = con.prepareStatement("TRUNCATE TABLE word");
-			st1.execute();
+//        	PreparedStatement st1 = con.prepareStatement("TRUNCATE TABLE word");
+//	        st1.execute();
 
 			for (int i = 0; i < word_DB.size(); i++) {
 				int Fre = (int) word_Fre.get(i);
@@ -114,5 +115,4 @@ public class DatabaseWord {
 			JOptionPane.showMessageDialog(null, "Connection Not Found");
 		}
 	}
-
 }
