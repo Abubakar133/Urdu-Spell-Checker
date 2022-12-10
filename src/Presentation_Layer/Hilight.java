@@ -1,11 +1,13 @@
-package PresentationLayer;
+package Presentation_Layer;
 import java.awt.Color;
 import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.border.LineBorder;
-import BussinessLayer.CHeck_Words;
+
+import BussinessLogic_Layer.CHeck_Words;
+
 import javax.swing.ScrollPaneConstants;
 import javax.swing.JTextArea;
 import javax.swing.JButton;

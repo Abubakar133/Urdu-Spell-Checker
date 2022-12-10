@@ -1,4 +1,4 @@
-package BussinessLayer;
+package BussinessLogic_Layer;
 
 import java.awt.Color;
 import java.text.BreakIterator;
@@ -11,7 +11,8 @@ import javax.swing.text.BadLocationException;
 import javax.swing.text.DefaultHighlighter;
 import javax.swing.text.Highlighter;
 import javax.swing.text.Highlighter.HighlightPainter;
-import DataAccesLAyer.Text_Read;
+
+import Database_Layer.Text_Read;
 
 public class CHeck_Words {
     public static String TestWord;

@@ -1,4 +1,4 @@
-package DataAccesLAyer;
+package Database_Layer;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;

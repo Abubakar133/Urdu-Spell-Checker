@@ -10,6 +10,8 @@ import BussinessLogic_Layer.ReadXML;
 import Database_Layer.DatabasePG;
 import Database_Layer.DatabaseWord;
 import Database_Layer.Database_Retrive;
+import Database_Layer.Facade;
+import Database_Layer.IFacade;
 
 
 class UC1_Testing {
@@ -66,9 +68,9 @@ class UC1_Testing {
 	@Test
 	@DisplayName("Db con 2")
 	public  void DB2()
-	{
+	{ Facade Fs=new IFacade();
 		DatabasePG t=new DatabasePG() ;
-		Assertions.assertTrue(DatabasePG.CheckConnection());
+		Assertions.assertTrue(Fs.CheckConnection());
 		
 	}
 	
