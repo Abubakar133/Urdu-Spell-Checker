@@ -20,6 +20,7 @@ import BussinessLogic_Layer.ReadXML;
 import javax.swing.JTextField;
 import javax.swing.JRadioButton;
 import java.awt.Font;
+import javax.swing.JProgressBar;
 
 public class words_Database extends JFrame {
 
@@ -42,6 +43,8 @@ public class words_Database extends JFrame {
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
+				
+				
 			}
 		});
 	}
@@ -183,7 +186,37 @@ public class words_Database extends JFrame {
 		JLabel lblNewLabel_3 = new JLabel("File");
 		lblNewLabel_3.setBounds(622, 189, 32, 13);
 		contentPane.add(lblNewLabel_3);
-			
+		
+		
+		
+		
+		JLabel lblNewLabel_4 = new JLabel("<");
+		lblNewLabel_4.setFont(new Font("Tahoma", Font.BOLD, 17));
+		lblNewLabel_4.setBounds(10, 382, 26, 21);
+		contentPane.add(lblNewLabel_4);
+		
+		JButton btnNewButton_5 = new JButton("Clear words");
+		btnNewButton_5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				Make_Word obj=new Make_Word();
+				obj.delete(true);
+				
+			}
+		});
+		btnNewButton_5.setBounds(71, 306, 122, 41);
+		contentPane.add(btnNewButton_5);
+		
+		JProgressBar progressBar = new JProgressBar();
+		progressBar.setBounds(289, 361, 264, 21);
+		contentPane.add(progressBar);
+		progressBar.setValue(0);
+		progressBar.setOpaque(true);
+		progressBar.setForeground(Color.YELLOW);
+		progressBar.setStringPainted(true);
+		
+		
+
 	}
 	
 	public static void getFolder() {
