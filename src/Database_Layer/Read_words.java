@@ -19,7 +19,7 @@ public class Read_words {
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/spell_checker", "root", "");
 
 			if (!con.isClosed()) {
-				PreparedStatement ps = con.prepareStatement("SELECT * from word");
+				PreparedStatement ps = con.prepareStatement("SELECT * from word ORDER by frequency");
 
 				ResultSet rs = ps.executeQuery();
 
