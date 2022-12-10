@@ -5,6 +5,8 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import Database_Layer.DatabasePG;
+import Presentation_Layer.words_Database;
+
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -77,12 +79,25 @@ public static List<String> RT() {
   	 
   	 return XMLauthor;
    }
+  static int i=1;
 	public static void XML_Folder(File[] file_Folder)   
 	{  
-	 
-	
+		System.out.println(file_Folder.length);
+	    
 		for(File S_F:file_Folder) {
+			
 		if (S_F.isFile()) {
+			int formula=((i*100)/file_Folder.length);
+			try {
+				Thread.sleep(10);
+				i++;
+				
+			} catch (InterruptedException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			
+			
 	try {
 	  
 		DocumentBuilderFactory DF = DocumentBuilderFactory.newInstance();  
@@ -126,5 +141,8 @@ public static List<String> RT() {
 	
 
    
-	}
 	
+	
+
+   
+}
