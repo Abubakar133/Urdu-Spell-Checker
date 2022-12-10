@@ -30,7 +30,9 @@ public class DatabasePG {
 		
 	  	
 		try {
-	    	Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/spell_checker","root","");
+			Connection con;
+			DataBaseConnection obj1=DataBaseConnection.getInstance();
+                con= obj1.Connec();
 	    	
 	    	for(int j=0;j<P_Str.size();j++) {
 	    		try {

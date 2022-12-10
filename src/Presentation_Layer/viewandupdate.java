@@ -22,6 +22,7 @@ import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.awt.event.ActionEvent;
@@ -495,6 +496,7 @@ public class viewandupdate extends JFrame {
 		 tableData.addMouseListener(new MouseAdapter() {
 			    @Override
 			    public void mouseClicked(final MouseEvent e) {
+			    	try {
 			        if (e.getClickCount() == 1) {
 			            final JTable le= (JTable)e.getSource();
 			            final int r = le.getSelectedRow();
@@ -502,6 +504,11 @@ public class viewandupdate extends JFrame {
 			            final String val = (String)le.getValueAt(r, c);
 			            textFieldID.setText(val);
 			        }}
+			    	catch(Exception e1){
+			    		
+			    		
+			    	}
+			    }
 			    });	
 	}
 }

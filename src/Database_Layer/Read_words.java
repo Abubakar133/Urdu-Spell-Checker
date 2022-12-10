@@ -14,10 +14,11 @@ public class Read_words {
 	static List<String> A_Str = new ArrayList<String>();
 
 	public static void Word() {
-
+		A_Str.clear();
 		try {
-			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/spell_checker", "root", "");
-
+			Connection con;
+			DataBaseConnection obj=DataBaseConnection.getInstance();
+                con= obj.Connec();
 			if (!con.isClosed()) {
 				PreparedStatement ps = con.prepareStatement("SELECT * from word ORDER by frequency");
 
@@ -33,7 +34,7 @@ public class Read_words {
 				}
 
 				con.close();
-				JOptionPane.showMessageDialog(null, "FIle Retrived Successfully please wait....");
+				
 			} else
 				JOptionPane.showMessageDialog(null, "Connection Not Found");
 		} catch (SQLException e) {

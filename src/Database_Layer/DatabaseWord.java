@@ -27,11 +27,9 @@ public class DatabaseWord {
 		word_DB2 = word_DB;
 
 		try {
-			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/spell_checker", "root", "");
-
-//        	PreparedStatement st1 = con.prepareStatement("TRUNCATE TABLE word");
-//	        st1.execute();
-
+			Connection con;
+			DataBaseConnection obj1=DataBaseConnection.getInstance();
+                con= obj1.Connec();
 			for (int i = 0; i < word_DB.size(); i++) {
 				int Fre = (int) word_Fre.get(i);
 
@@ -42,7 +40,7 @@ public class DatabaseWord {
 			}
 			JOptionPane.showMessageDialog(null, "Word Sent Successfully in Database");
 			t = true;
-			con.close();
+			//con.close();
 		} catch (SQLException e) {
 			JOptionPane.showMessageDialog(null, "Connection Not Found");
 		}
@@ -68,7 +66,9 @@ public class DatabaseWord {
 	public void delete(int id) {
 
 		try {
-			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/spell_checker", "root", "");
+			Connection con;
+			DataBaseConnection obj=DataBaseConnection.getInstance();
+                con= obj.Connec();
 
 			String query = "DELETE FROM word WHERE word_id = '" + id + "'";
 			PreparedStatement st1 = con.prepareStatement(query);
@@ -76,7 +76,7 @@ public class DatabaseWord {
 
 			JOptionPane.showMessageDialog(null, "Word Delete Successfully in Database");
 
-			con.close();
+			//con.close();
 		} catch (SQLException e) {
 			JOptionPane.showMessageDialog(null, "Connection Not Found");
 		}
@@ -84,7 +84,9 @@ public class DatabaseWord {
 
 	public void update(String word, int id, int fre) {
 		try {
-			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/spell_checker", "root", "");
+			Connection con;
+			DataBaseConnection obj=DataBaseConnection.getInstance();
+                con= obj.Connec();
 
 			String query = "UPDATE word SET word_id = " + id + ", words = '" + word + "', frequency = " + fre
 					+ " WHERE word_id like '" + id + "'";
@@ -94,7 +96,7 @@ public class DatabaseWord {
 
 			JOptionPane.showMessageDialog(null, "Word update Successfully in Database");
 
-			con.close();
+			//con.close();
 		} catch (SQLException e) {
 			JOptionPane.showMessageDialog(null, "Connection Not Found");
 		}
@@ -103,14 +105,16 @@ public class DatabaseWord {
 	public void delete() {
 
 		try {
-			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/spell_checker", "root", "");
+			Connection con;
+			DataBaseConnection obj=DataBaseConnection.getInstance();
+                con= obj.Connec();
 
 			PreparedStatement st1 = con.prepareStatement("TRUNCATE TABLE word");
 			st1.execute();
 
 			JOptionPane.showMessageDialog(null, "Word Delete Successfully in Database");
 
-			con.close();
+			//con.close();
 		} catch (SQLException e) {
 			JOptionPane.showMessageDialog(null, "Connection Not Found");
 		}

@@ -16,11 +16,13 @@ public class Database_Retrive {
 	}
 
 	static boolean t = false;
-
+	static DataBaseConnection obj=DataBaseConnection.getInstance();
 	public static List<String> Word() {
 		List<String> A_Str = new ArrayList<String>();
 		try {
-			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/spell_checker", "root", "");
+			Connection con;
+			
+                con= obj.Connec();
 
 			if (!con.isClosed()) {
 				PreparedStatement ps = con.prepareStatement("SELECT * from Paragraph");
