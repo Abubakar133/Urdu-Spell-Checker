@@ -10,14 +10,14 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
-public class Database_Retrive {
+public class Database_Retrive implements Database_RetriveF {
 	public Database_Retrive() {
 
 	}
 
 	static boolean t = false;
 	static DataBaseConnection obj=DataBaseConnection.getInstance();
-	public static List<String> Word() {
+	public List<String> Word() {
 		List<String> A_Str = new ArrayList<String>();
 		try {
 			Connection con;
@@ -46,7 +46,7 @@ public class Database_Retrive {
 		return A_Str;
 	}
 
-	public static boolean CheckConnection() {
+	public boolean CheckConnection() {
 
 		Word();
 		if (t == true) {

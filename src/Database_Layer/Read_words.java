@@ -10,15 +10,15 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
-public class Read_words {
+public class Read_words implements Read_wordsF {
 	static List<String> A_Str = new ArrayList<String>();
 
-	public static void Word() {
+	public void WordST() {
 		A_Str.clear();
 		try {
 			Connection con;
-			DataBaseConnection obj=DataBaseConnection.getInstance();
-                con= obj.Connec();
+			DataBaseConnection obj = DataBaseConnection.getInstance();
+			con = obj.Connec();
 			if (!con.isClosed()) {
 				PreparedStatement ps = con.prepareStatement("SELECT * from word ORDER by frequency");
 
@@ -34,13 +34,14 @@ public class Read_words {
 				}
 
 				con.close();
-				
+
 			} else
 				JOptionPane.showMessageDialog(null, "Connection Not Found");
 		} catch (SQLException e) {
 			JOptionPane.showMessageDialog(null, "Driver Error Found");
 		}
 
+		System.out.println(A_Str.size());
 	}
 
 	public List returnword() {

@@ -5,6 +5,8 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import Database_Layer.DatabasePG;
+import Database_Layer.Facade;
+import Database_Layer.IFacade;
 import Presentation_Layer.words_Database;
 
 import java.util.ArrayList;
@@ -23,9 +25,9 @@ public class ReadXML {
 		
 	}
 	
-	static DatabasePG obj=new DatabasePG();
+	//static DatabasePG obj=new DatabasePG();
 	 
-	
+	static Facade Fs;
 	public static List<String> RP() {
 	     return XMLpg;
 	 
@@ -35,7 +37,7 @@ public class ReadXML {
     
      
 public static void XML_Single(File S_F) {
-		
+	Fs = new IFacade();
 		try {
 			  
 			DocumentBuilderFactory DF = DocumentBuilderFactory.newInstance();  
@@ -65,7 +67,7 @@ public static void XML_Single(File S_F) {
 			
 			} 
 			
-			obj.PG_Data();
+			Fs.PG_Data();
 				}
 			catch(Exception e) {
 				JOptionPane.showMessageDialog(null,"Sorry FIle is Currupted");
@@ -82,6 +84,8 @@ public static List<String> RT() {
   static int i=1;
 	public static void XML_Folder(File[] file_Folder)   
 	{  
+		
+		Fs = new IFacade();
 		System.out.println(file_Folder.length);
 	    
 		for(File S_F:file_Folder) {
@@ -132,7 +136,7 @@ public static List<String> RT() {
 		}
 		
 		}
-		obj.PG_Data();
+		Fs.PG_Data();
 	
 }
 	public static List<String> XMLtitle=new ArrayList<String>();
