@@ -10,6 +10,8 @@ import java.util.Map;
 
 import Database_Layer.DatabaseWord;
 import Database_Layer.Database_Retrive;
+import Database_Layer.Facade;
+import Database_Layer.IFacade;
 
 public class Make_Word {
 
@@ -19,28 +21,31 @@ public class Make_Word {
 		
 		
 	}
+	
+	private Facade Fs=new IFacade();
 	static List<String> w_DB = new ArrayList<String>(); 
     static List<Integer> F_DB = new ArrayList<Integer>();
     
     
  
-    static DatabaseWord T1= new DatabaseWord();
+   // static DatabaseWord T1= new DatabaseWord();
     
     public void controller() {
     	
     	
-    	List<String> c1 = Database_Retrive.Word();
+    	List<String> c1 = Fs.Word();
     	
     	List<String> c2 = Word_Creator(c1);
     	HashMap_Fun(c2);
-    	T1.Word_Data();
+    	Fs.Word_Data();
     }
     
     public void Word_Single(String Word) {
+    	
     	w_DB.add(Word);
     	
     	F_DB.add(010);
-    	T1.Word_Data();
+    	Fs.Word_Data();
     }
     
 	@SuppressWarnings("unchecked")
@@ -112,7 +117,7 @@ public class Make_Word {
     
     public void delete(boolean t) {
     	if(t=true) {
-    		T1.delete();
+    		Fs.delete();
     	}
     	else {
 		
@@ -120,9 +125,6 @@ public class Make_Word {
     	}
     	}
     
-//    public String normalize(String word){
-//
-//         Normalizer.normalize(word, Form.NFKD).replaceAll("\\p{M}","");
-//    }
+
     
 }
