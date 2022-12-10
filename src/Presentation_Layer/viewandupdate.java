@@ -45,6 +45,7 @@ public class viewandupdate extends JFrame {
 	view_update obj1=new view_update();
 	List words =new ArrayList();
 	boolean T=false;
+	HomeScreen HS ;
 	static viewandupdate frame= new viewandupdate();
 
 	/**
@@ -451,11 +452,11 @@ public class viewandupdate extends JFrame {
         btnNewButton_2.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		
-        		HomeScreen frame1 = new HomeScreen();
-				frame1.setVisible(true);
+        		HomeScreen.frame1.setVisible(true);
+        		frame.dispose();
 				
 	      		
-	            frame.setVisible(false);
+	            
         	}
         });
         btnNewButton_2.setFont(new Font("Tahoma", Font.BOLD, 14));

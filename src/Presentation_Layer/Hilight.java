@@ -188,11 +188,10 @@ public class Hilight extends JFrame {
 		      JButton btnNewButton_3 = new JButton("Home Page");
 		      btnNewButton_3.addActionListener(new ActionListener() {
 		      	public void actionPerformed(ActionEvent e) {
-		      		frame.dispose();
-		      		HomeScreen frame1 = new HomeScreen();
-					frame1.setVisible(true);
-					
 		      		
+		      		HomeScreen.frame1.setVisible(true);
+					
+		      		frame.dispose();
 		            
 		      	}
 		      });

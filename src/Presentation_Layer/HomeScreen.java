@@ -16,7 +16,7 @@ import java.awt.event.ActionEvent;
 public class HomeScreen extends JFrame {
 
 	private JPanel contentPane;
-	private static HomeScreen frame1 = new HomeScreen();
+	static HomeScreen frame1 = new HomeScreen();
 	
 	/**
 	 * Launch the application.
@@ -58,9 +58,9 @@ public class HomeScreen extends JFrame {
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				words_Database frame = new words_Database();
-				frame.show();
-				frame1.hide();
+				words_Database.frame.setVisible(true);
+				
+				frame1.dispose();
 				
 				//frame1.setVisible(false);
 			}
@@ -72,9 +72,8 @@ public class HomeScreen extends JFrame {
 		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 12));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Mutants frame = new Mutants();
-				frame.setVisible(true);
-				frame1.setVisible(false);
+				Mutants.frame.setVisible(true);
+				frame1.dispose();
 				
 			}
 		});
@@ -85,9 +84,8 @@ public class HomeScreen extends JFrame {
 		btnNewButton_2.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Hilight frame = new Hilight();
-				frame.setVisible(true);
-				frame1.setVisible(false);
+				Hilight.frame.setVisible(true);
+				frame1.dispose();
 				
 			}
 		});
@@ -98,11 +96,11 @@ public class HomeScreen extends JFrame {
 		btnViewWordTable.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				viewandupdate frame = new viewandupdate();
-				frame.show();
+				viewandupdate.frame.setVisible(true);
 				
 				//frame1.setVisible(false);
-				frame1.hide();
+				
+				frame1.dispose();
 				
 			}
 		});

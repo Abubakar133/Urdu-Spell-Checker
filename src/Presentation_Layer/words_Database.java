@@ -38,7 +38,7 @@ public class words_Database extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					 frame = new words_Database();
+					       frame = new words_Database();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -218,8 +218,7 @@ public class words_Database extends JFrame {
 		JButton btnNewButton_4 = new JButton("Home");
 		btnNewButton_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				HomeScreen frame1 = new HomeScreen();
-				frame1.show();
+				HomeScreen.frame1.setVisible(true);
 				frame.hide();
 				
 		

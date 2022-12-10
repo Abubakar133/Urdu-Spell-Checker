@@ -81,11 +81,11 @@ public class Mutants extends JFrame {
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				HomeScreen frame1 = new HomeScreen();
-				frame1.setVisible(true);
+				//HomeScreen frame1 = new HomeScreen();
+				HomeScreen.frame1.setVisible(true);
 				
 	      		
-	            frame.setVisible(false);
+				Mutants.frame.dispose();
 			}
 		});
 		btnNewButton_2.setBounds(533, 41, 110, 42);
