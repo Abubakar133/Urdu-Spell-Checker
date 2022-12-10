@@ -35,6 +35,7 @@ public class viewandupdate extends JFrame {
 	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;
+	JRadioButton delete;
 	JRadioButton search;
 	view_update obj1=new view_update();
 	List words =new ArrayList();
@@ -260,6 +261,37 @@ public class viewandupdate extends JFrame {
 		lblFrequency.setBounds(587, 311, 84, 32);
 		contentPane.add(lblFrequency);
 		
+		JButton btnNewButton_1_1_1 = new JButton("Delete");
+		btnNewButton_1_1_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				int id=Integer.parseInt(textField.getText());
+				obj1.delete(id);
+				
+				
+			}
+		});
+		btnNewButton_1_1_1.setFont(new Font("Trebuchet MS", Font.BOLD, 16));
+		btnNewButton_1_1_1.setBounds(586, 463, 109, 32);
+		contentPane.add(btnNewButton_1_1_1);
+		
+		JButton btnNewButton_1_1_2 = new JButton("Clear");
+		btnNewButton_1_1_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				DefaultTableModel dm = (DefaultTableModel)table.getModel();
+				dm.getDataVector().removeAllElements();
+				dm.fireTableDataChanged();
+				textField_1.setText("");
+				textField_2.setText("");
+				textField.setText("");
+				
+			}
+		});
+		btnNewButton_1_1_2.setFont(new Font("Trebuchet MS", Font.BOLD, 16));
+		btnNewButton_1_1_2.setBounds(718, 463, 96, 32);
+		contentPane.add(btnNewButton_1_1_2);
+		
 		JButton btnNewButton_1_1_1_1 = new JButton("Search");
 		btnNewButton_1_1_1_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -341,16 +373,33 @@ public class viewandupdate extends JFrame {
 		btnNewButton_1_1_1_1.setBounds(651, 520, 109, 32);
 		contentPane.add(btnNewButton_1_1_1_1);
 		
+		 delete = new JRadioButton("");
+		delete.setBounds(583, 446, 28, 21);
+		contentPane.add(delete);
+		
 		 search = new JRadioButton("");
 		search.setBounds(651, 501, 28, 21);
 		contentPane.add(search);
 		ButtonGroup bg=new ButtonGroup();
         bg.add(search);
+        bg.add(delete);
         bg.add(search);
+       getContentPane().add(delete );
         getContentPane().add(search);;
 		 
 		
 		 
+		 delete.addActionListener(new ActionListener() {
+
+			 public void actionPerformed(ActionEvent e) {
+
+				 textField_1.setEditable(false);
+				 textField.setEditable(true);
+				 textField_2.setEditable(false);
+
+			 }
+
+			 });
 		 search.addActionListener(new ActionListener() {
 
 			 public void actionPerformed(ActionEvent e) {
