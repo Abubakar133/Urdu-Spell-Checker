@@ -35,6 +35,8 @@ public class viewandupdate extends JFrame {
 	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;
+	JRadioButton Insert;
+	JRadioButton update;
 	JRadioButton delete;
 	JRadioButton search;
 	view_update obj1=new view_update();
@@ -261,6 +263,37 @@ public class viewandupdate extends JFrame {
 		lblFrequency.setBounds(587, 311, 84, 32);
 		contentPane.add(lblFrequency);
 		
+		
+		
+		JButton btnNewButton_1 = new JButton("insert");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				Make_Word obj=new Make_Word();
+				obj.Word_Single(textField_1.getText());
+				
+				
+			}
+		});
+		btnNewButton_1.setFont(new Font("Trebuchet MS", Font.BOLD, 18));
+		btnNewButton_1.setBounds(586, 400, 109, 32);
+		contentPane.add(btnNewButton_1);
+		
+		JButton btnNewButton_1_1 = new JButton("Update");
+		btnNewButton_1_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				int id=Integer.parseInt(textField.getText());
+				int fre=Integer.parseInt(textField_2.getText());
+				 obj1.update(textField_1.getText(),id,fre);
+				
+				
+			}
+		});
+		btnNewButton_1_1.setFont(new Font("Trebuchet MS", Font.BOLD, 16));
+		btnNewButton_1_1.setBounds(718, 400, 96, 32);
+		contentPane.add(btnNewButton_1_1);
+		
 		JButton btnNewButton_1_1_1 = new JButton("Delete");
 		btnNewButton_1_1_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -373,6 +406,14 @@ public class viewandupdate extends JFrame {
 		btnNewButton_1_1_1_1.setBounds(651, 520, 109, 32);
 		contentPane.add(btnNewButton_1_1_1_1);
 		
+		 Insert = new JRadioButton("");
+		Insert.setBounds(583, 380, 28, 21);
+		contentPane.add(Insert);
+		
+		 update = new JRadioButton("");
+		update.setBounds(718, 380, 28, 21);
+		contentPane.add(update);
+		
 		 delete = new JRadioButton("");
 		delete.setBounds(583, 446, 28, 21);
 		contentPane.add(delete);
@@ -381,14 +422,50 @@ public class viewandupdate extends JFrame {
 		search.setBounds(651, 501, 28, 21);
 		contentPane.add(search);
 		ButtonGroup bg=new ButtonGroup();
+        bg.add(Insert);
+        bg.add(update);
         bg.add(search);
         bg.add(delete);
         bg.add(search);
+        
+        getContentPane().add(Insert);
+        getContentPane().add(update);
        getContentPane().add(delete );
-        getContentPane().add(search);;
+        getContentPane().add(search);
+
+        Insert.addAncestorListener(null);;
+		 update.addAncestorListener(null);
 		 
 		
+		 if(Insert.isSelected()) {
+			 textField.setEnabled(true);
+		 }
+		 else if(update.isSelected()) {
+			 textField.setEnabled(false);
+		 }
 		 
+		 Insert.addActionListener(new ActionListener() {
+
+			 public void actionPerformed(ActionEvent e) {
+
+			 textField_1.setEditable(true);
+			 textField.setEditable(false);
+			 textField_2.setEditable(false);
+			 
+
+			 }
+
+			 });
+		 update.addActionListener(new ActionListener() {
+
+			 public void actionPerformed(ActionEvent e) {
+
+				 textField_1.setEditable(true);
+				 textField.setEditable(true);
+				 textField_2.setEditable(true);
+			 }
+
+			 });
 		 delete.addActionListener(new ActionListener() {
 
 			 public void actionPerformed(ActionEvent e) {
