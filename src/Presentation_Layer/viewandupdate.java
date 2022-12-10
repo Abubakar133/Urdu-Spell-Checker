@@ -70,6 +70,7 @@ public class viewandupdate extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 838, 621);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(95, 158, 160));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
@@ -204,6 +205,7 @@ public class viewandupdate extends JFrame {
 	    MD = new DefaultTableModel(colNames, 0);
 		
 		JButton btnNewButton = new JButton("View Table");
+		btnNewButton.setBackground(new Color(245, 245, 220));
 		btnNewButton.setFont(new Font("Trebuchet MS", Font.BOLD, 18));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -270,6 +272,7 @@ public class viewandupdate extends JFrame {
 		
 		
 		JButton btnNewButton_1 = new JButton("insert");
+		btnNewButton_1.setBackground(new Color(245, 222, 179));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -284,6 +287,7 @@ public class viewandupdate extends JFrame {
 		contentPane.add(btnNewButton_1);
 		
 		JButton btnNewButton_1_1 = new JButton("Update");
+		btnNewButton_1_1.setBackground(new Color(245, 222, 179));
 		btnNewButton_1_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -299,6 +303,7 @@ public class viewandupdate extends JFrame {
 		contentPane.add(btnNewButton_1_1);
 		
 		JButton btnNewButton_1_1_1 = new JButton("Delete");
+		btnNewButton_1_1_1.setBackground(new Color(245, 222, 179));
 		btnNewButton_1_1_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -313,6 +318,7 @@ public class viewandupdate extends JFrame {
 		contentPane.add(btnNewButton_1_1_1);
 		
 		JButton btnNewButton_1_1_2 = new JButton("Clear");
+		btnNewButton_1_1_2.setBackground(new Color(245, 245, 220));
 		btnNewButton_1_1_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -330,6 +336,7 @@ public class viewandupdate extends JFrame {
 		contentPane.add(btnNewButton_1_1_2);
 		
 		JButton btnNewButton_1_1_1_1 = new JButton("Search");
+		btnNewButton_1_1_1_1.setBackground(new Color(245, 222, 179));
 		btnNewButton_1_1_1_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				DefaultTableModel dm = (DefaultTableModel)tableData.getModel();
@@ -344,12 +351,13 @@ public class viewandupdate extends JFrame {
 				for (int i = 0; i <words.size();i=i+3)  {
 					if(id.equals(words.get(i))) {
 						
-					int j=0;
 					
-					Object[] B_Data = new Object[3];
-					 B_Data[j]= words.get(i);
-		            B_Data[j+1]= words.get(i+1);
-		              B_Data[j+2]=words.get(i+2);
+					
+					Object[] B_Data = new Object[4];
+					 B_Data[0]=1;
+		            B_Data[1]= words.get(i);
+		              B_Data[2]=words.get(i+1);
+		              B_Data[3]=words.get(i+2);
 					
 		       
 		        MD.addRow(B_Data);
@@ -364,12 +372,11 @@ public class viewandupdate extends JFrame {
 				for (int i = 0; i <words.size();i=i+3)  {
 					if(Wor.equals(words.get(i+1))) {
 						
-					int j=0;
-					
-					Object[] B_Data = new Object[3];
-					 B_Data[j]= words.get(i);
-		            B_Data[j+1]= words.get(i+1);
-		              B_Data[j+2]=words.get(i+2);
+						Object[] B_Data = new Object[4];
+						 B_Data[0]=1;
+			            B_Data[1]= words.get(i);
+			              B_Data[2]=words.get(i+1);
+			              B_Data[3]=words.get(i+2);
 					
 		       
 		        MD.addRow(B_Data);
@@ -385,12 +392,11 @@ public class viewandupdate extends JFrame {
 						int f= Integer.parseInt(Str );
 						if(f<= fre) {
 							
-						int j=0;
-						
-						Object[] B_Data = new Object[3];
-						 B_Data[j]= words.get(i);
-			            B_Data[j+1]= words.get(i+1);
-			              B_Data[j+2]=words.get(i+2);
+							Object[] B_Data = new Object[4];
+							 B_Data[0]=1;
+				            B_Data[1]= words.get(i);
+				              B_Data[2]=words.get(i+1);
+				              B_Data[3]=words.get(i+2);
 						
 			       
 			        MD.addRow(B_Data);
@@ -411,18 +417,22 @@ public class viewandupdate extends JFrame {
 		contentPane.add(btnNewButton_1_1_1_1);
 		
 		 Insert = new JRadioButton("");
+		 Insert.setBackground(new Color(95, 158, 160));
 		Insert.setBounds(583, 380, 28, 21);
 		contentPane.add(Insert);
 		
 		 update = new JRadioButton("");
+		 update.setBackground(new Color(95, 158, 160));
 		update.setBounds(718, 380, 28, 21);
 		contentPane.add(update);
 		
 		 delete = new JRadioButton("");
+		 delete.setBackground(new Color(95, 158, 160));
 		delete.setBounds(583, 446, 28, 21);
 		contentPane.add(delete);
 		
 		 search = new JRadioButton("");
+		 search.setBackground(new Color(95, 158, 160));
 		search.setBounds(651, 501, 28, 21);
 		contentPane.add(search);
 		ButtonGroup bg=new ButtonGroup();
