@@ -99,4 +99,20 @@ public class DatabaseWord {
 		}
 	}
 
+	public void delete() {
+
+		try {
+			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/spell_checker", "root", "");
+
+			PreparedStatement st1 = con.prepareStatement("TRUNCATE TABLE word");
+			st1.execute();
+
+			JOptionPane.showMessageDialog(null, "Word Delete Successfully in Database");
+
+			con.close();
+		} catch (SQLException e) {
+			JOptionPane.showMessageDialog(null, "Connection Not Found");
+		}
+	}
+
 }
