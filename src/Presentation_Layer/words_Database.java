@@ -30,7 +30,7 @@ public class words_Database extends JFrame {
 	private static JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;
-
+	static words_Database frame = new words_Database();
 	/**
 	 * Launch the application.
 	 */
@@ -38,7 +38,7 @@ public class words_Database extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					words_Database frame = new words_Database();
+					 frame = new words_Database();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -214,6 +214,21 @@ public class words_Database extends JFrame {
 		progressBar.setOpaque(true);
 		progressBar.setForeground(Color.YELLOW);
 		progressBar.setStringPainted(true);
+		
+		JButton btnNewButton_4 = new JButton("Home");
+		btnNewButton_4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				HomeScreen frame1 = new HomeScreen();
+				frame1.show();
+				frame.hide();
+				
+		
+	            
+			}
+		});
+		btnNewButton_4.setFont(new Font("Tahoma", Font.BOLD, 14));
+		btnNewButton_4.setBounds(682, 29, 110, 41);
+		contentPane.add(btnNewButton_4);
 		
 		
 

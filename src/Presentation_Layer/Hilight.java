@@ -3,7 +3,6 @@ import java.awt.Color;
 import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.JRadioButton;
 import javax.swing.border.LineBorder;
 
 import BussinessLogic_Layer.CHeck_Words;
@@ -30,6 +29,7 @@ public class Hilight extends JFrame {
 	private static JScrollPane Scoll;
 	private JScrollPane scrollPane;
 	JComboBox comboBox;
+	static Hilight frame = new Hilight();
 	private JComboBox comboBox_1;
 
 	/**
@@ -39,7 +39,7 @@ public class Hilight extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Hilight frame = new Hilight();
+					 frame = new Hilight();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -184,6 +184,21 @@ public class Hilight extends JFrame {
 		      JLabel lblNewLabel_2 = new JLabel("Real Word");
 		      lblNewLabel_2.setBounds(760, 476, 91, 13);
 		      contentPane.add(lblNewLabel_2);
+		      
+		      JButton btnNewButton_3 = new JButton("Home Page");
+		      btnNewButton_3.addActionListener(new ActionListener() {
+		      	public void actionPerformed(ActionEvent e) {
+		      		frame.dispose();
+		      		HomeScreen frame1 = new HomeScreen();
+					frame1.setVisible(true);
+					
+		      		
+		            
+		      	}
+		      });
+		      btnNewButton_3.setFont(new Font("Tahoma", Font.BOLD, 14));
+		      btnNewButton_3.setBounds(812, 37, 137, 47);
+		      contentPane.add(btnNewButton_3);
 		      
 		
 	}

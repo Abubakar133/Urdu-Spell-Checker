@@ -18,7 +18,7 @@ import BussinessLogic_Layer.Generate_Mutant;
 public class Mutants extends JFrame {
 
 	private JPanel contentPane;
-
+	static Mutants frame= new Mutants();
 	/**
 	 * Launch the application.
 	 */
@@ -26,7 +26,7 @@ public class Mutants extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Mutants frame = new Mutants();
+					 frame = new Mutants();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -76,6 +76,20 @@ public class Mutants extends JFrame {
 		lblNewLabel.setFont(new Font("Wide Latin", Font.BOLD | Font.ITALIC, 26));
 		lblNewLabel.setBounds(185, 76, 327, 63);
 		contentPane.add(lblNewLabel);
+		
+		JButton btnNewButton_2 = new JButton("Home");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				HomeScreen frame1 = new HomeScreen();
+				frame1.setVisible(true);
+				
+	      		
+	            frame.setVisible(false);
+			}
+		});
+		btnNewButton_2.setBounds(533, 41, 110, 42);
+		contentPane.add(btnNewButton_2);
 	}
 
 }

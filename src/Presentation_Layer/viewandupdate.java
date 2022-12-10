@@ -45,7 +45,7 @@ public class viewandupdate extends JFrame {
 	view_update obj1=new view_update();
 	List words =new ArrayList();
 	boolean T=false;
-	
+	static viewandupdate frame= new viewandupdate();
 
 	/**
 	 * Launch the application.
@@ -54,7 +54,7 @@ public class viewandupdate extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					viewandupdate frame = new viewandupdate();
+					frame = new viewandupdate();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -446,6 +446,21 @@ public class viewandupdate extends JFrame {
         getContentPane().add(update);
        getContentPane().add(delete );
         getContentPane().add(search);
+        
+        JButton btnNewButton_2 = new JButton("Home");
+        btnNewButton_2.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		
+        		HomeScreen frame1 = new HomeScreen();
+				frame1.setVisible(true);
+				
+	      		
+	            frame.setVisible(false);
+        	}
+        });
+        btnNewButton_2.setFont(new Font("Tahoma", Font.BOLD, 14));
+        btnNewButton_2.setBounds(671, 38, 104, 41);
+        contentPane.add(btnNewButton_2);
 
         Insert.addAncestorListener(null);;
 		 update.addAncestorListener(null);

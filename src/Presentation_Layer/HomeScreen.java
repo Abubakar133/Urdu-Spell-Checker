@@ -16,7 +16,8 @@ import java.awt.event.ActionEvent;
 public class HomeScreen extends JFrame {
 
 	private JPanel contentPane;
-	static HomeScreen frame1;
+	private static HomeScreen frame1 = new HomeScreen();
+	
 	/**
 	 * Launch the application.
 	 */
@@ -37,6 +38,7 @@ public class HomeScreen extends JFrame {
 	 * Create the frame.
 	 */
 	public HomeScreen() {
+		super();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 636, 355);
 		contentPane = new JPanel();
@@ -56,10 +58,11 @@ public class HomeScreen extends JFrame {
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
 				words_Database frame = new words_Database();
-				frame.setVisible(true);
-				frame1.setVisible(false);
+				frame.show();
+				frame1.hide();
+				
+				//frame1.setVisible(false);
 			}
 		});
 		btnNewButton.setBounds(245, 127, 130, 21);
@@ -96,9 +99,10 @@ public class HomeScreen extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				
 				viewandupdate frame = new viewandupdate();
-				frame.setVisible(true);
+				frame.show();
 				
-				frame1.setVisible(false);
+				//frame1.setVisible(false);
+				frame1.hide();
 				
 			}
 		});
