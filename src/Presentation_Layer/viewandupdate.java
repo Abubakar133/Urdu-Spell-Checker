@@ -20,6 +20,8 @@ import BussinessLogic_Layer.view_update;
 
 import java.awt.Font;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.List;
 import java.awt.event.ActionEvent;
@@ -30,10 +32,10 @@ import javax.swing.JRadioButton;
 public class viewandupdate extends JFrame {
 
 	private JPanel contentPane;
-	private JTable table;
+	private JTable tableData;
 	private DefaultTableModel MD;
-	private JTextField textField;
-	private JTextField textField_1;
+	private JTextField textFieldID;
+	private JTextField textFieldword;
 	private JTextField textField_2;
 	JRadioButton Insert;
 	JRadioButton update;
@@ -85,11 +87,11 @@ public class viewandupdate extends JFrame {
 		
 		
 		
-		table = new JTable();
-		table.setFont(new Font("Times New Roman", Font.PLAIN, 17));
-		scrollPane.setViewportView(table);
+		tableData = new JTable();
+		tableData.setFont(new Font("Times New Roman", Font.PLAIN, 17));
+		scrollPane.setViewportView(tableData);
 		
-		table.setModel(new DefaultTableModel(
+		tableData.setModel(new DefaultTableModel(
 			new Object[][] {
 				{null, null, null, null},
 				{null, null, null, null},
@@ -204,7 +206,7 @@ public class viewandupdate extends JFrame {
 		btnNewButton.setFont(new Font("Trebuchet MS", Font.BOLD, 18));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				DefaultTableModel dm = (DefaultTableModel)table.getModel();
+				DefaultTableModel dm = (DefaultTableModel)tableData.getModel();
 				dm.getDataVector().removeAllElements();
 				dm.fireTableDataChanged();
 
@@ -222,7 +224,7 @@ public class viewandupdate extends JFrame {
 		       
 		        MD.addRow(B_Dat);
 				 }
-				 table.setModel(MD);
+				 tableData.setModel(MD);
 		        
 
 			}
@@ -231,17 +233,17 @@ public class viewandupdate extends JFrame {
 		btnNewButton.setBounds(206, 533, 178, 41);
 		contentPane.add(btnNewButton);
 		
-		textField = new JTextField();
-		textField.setEditable(false);
-		textField.setBounds(671, 185, 132, 32);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		textFieldID = new JTextField();
+		textFieldID.setEditable(false);
+		textFieldID.setBounds(671, 185, 132, 32);
+		contentPane.add(textFieldID);
+		textFieldID.setColumns(10);
 		
-		textField_1 = new JTextField();
-		textField_1.setEditable(false);
-		textField_1.setColumns(10);
-		textField_1.setBounds(671, 246, 132, 32);
-		contentPane.add(textField_1);
+		textFieldword = new JTextField();
+		textFieldword.setEditable(false);
+		textFieldword.setColumns(10);
+		textFieldword.setBounds(671, 246, 132, 32);
+		contentPane.add(textFieldword);
 		
 		textField_2 = new JTextField();
 		textField_2.setEditable(false);
@@ -271,7 +273,7 @@ public class viewandupdate extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				
 				Make_Word obj=new Make_Word();
-				obj.Word_Single(textField_1.getText());
+				obj.Word_Single(textFieldword.getText());
 				
 				
 			}
@@ -284,9 +286,9 @@ public class viewandupdate extends JFrame {
 		btnNewButton_1_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				int id=Integer.parseInt(textField.getText());
+				int id=Integer.parseInt(textFieldID.getText());
 				int fre=Integer.parseInt(textField_2.getText());
-				 obj1.update(textField_1.getText(),id,fre);
+				 obj1.update(textFieldword.getText(),id,fre);
 				
 				
 			}
@@ -299,7 +301,7 @@ public class viewandupdate extends JFrame {
 		btnNewButton_1_1_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				int id=Integer.parseInt(textField.getText());
+				int id=Integer.parseInt(textFieldID.getText());
 				obj1.delete(id);
 				
 				
@@ -313,12 +315,12 @@ public class viewandupdate extends JFrame {
 		btnNewButton_1_1_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				DefaultTableModel dm = (DefaultTableModel)table.getModel();
+				DefaultTableModel dm = (DefaultTableModel)tableData.getModel();
 				dm.getDataVector().removeAllElements();
 				dm.fireTableDataChanged();
-				textField_1.setText("");
+				textFieldword.setText("");
 				textField_2.setText("");
-				textField.setText("");
+				textFieldID.setText("");
 				
 			}
 		});
@@ -329,11 +331,11 @@ public class viewandupdate extends JFrame {
 		JButton btnNewButton_1_1_1_1 = new JButton("Search");
 		btnNewButton_1_1_1_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				DefaultTableModel dm = (DefaultTableModel)table.getModel();
+				DefaultTableModel dm = (DefaultTableModel)tableData.getModel();
 				dm.getDataVector().removeAllElements();
 				dm.fireTableDataChanged();
-				String id=textField.getText();
-				String Wor=textField_1.getText();
+				String id=textFieldID.getText();
+				String Wor=textFieldword.getText();
 				
 
 				try {
@@ -353,7 +355,7 @@ public class viewandupdate extends JFrame {
 		        break;
 				 }
 				}
-				 table.setModel(MD);
+				 tableData.setModel(MD);
 			}
 			
 			   if(Wor!=null) {
@@ -373,7 +375,7 @@ public class viewandupdate extends JFrame {
 		        break;
 				 }
 				}
-				 table.setModel(MD);
+				 tableData.setModel(MD);
 			}
 			   if(textField_2.getText()!=null) {
 				   int fre=Integer.parseInt(textField_2.getText());
@@ -394,7 +396,7 @@ public class viewandupdate extends JFrame {
 			       
 					 }
 					}
-					 table.setModel(MD);
+					 tableData.setModel(MD);
 				}
 				}
 				catch(NumberFormatException e1) {
@@ -439,18 +441,18 @@ public class viewandupdate extends JFrame {
 		 
 		
 		 if(Insert.isSelected()) {
-			 textField.setEnabled(true);
+			 textFieldID.setEnabled(true);
 		 }
 		 else if(update.isSelected()) {
-			 textField.setEnabled(false);
+			 textFieldID.setEnabled(false);
 		 }
 		 
 		 Insert.addActionListener(new ActionListener() {
 
 			 public void actionPerformed(ActionEvent e) {
 
-			 textField_1.setEditable(true);
-			 textField.setEditable(false);
+			 textFieldword.setEditable(true);
+			 textFieldID.setEditable(false);
 			 textField_2.setEditable(false);
 			 
 
@@ -461,8 +463,8 @@ public class viewandupdate extends JFrame {
 
 			 public void actionPerformed(ActionEvent e) {
 
-				 textField_1.setEditable(true);
-				 textField.setEditable(true);
+				 textFieldword.setEditable(true);
+				 textFieldID.setEditable(true);
 				 textField_2.setEditable(true);
 			 }
 
@@ -471,8 +473,8 @@ public class viewandupdate extends JFrame {
 
 			 public void actionPerformed(ActionEvent e) {
 
-				 textField_1.setEditable(false);
-				 textField.setEditable(true);
+				 textFieldword.setEditable(false);
+				 textFieldID.setEditable(true);
 				 textField_2.setEditable(false);
 
 			 }
@@ -482,14 +484,24 @@ public class viewandupdate extends JFrame {
 
 			 public void actionPerformed(ActionEvent e) {
 
-				 textField_1.setEditable(true);
-				 textField.setEditable(true);
+				 textFieldword.setEditable(true);
+				 textFieldID.setEditable(true);
 				 textField_2.setEditable(true);
 
 			 }
 
 			 });
 		
-		
+		 tableData.addMouseListener(new MouseAdapter() {
+			    @Override
+			    public void mouseClicked(final MouseEvent e) {
+			        if (e.getClickCount() == 1) {
+			            final JTable le= (JTable)e.getSource();
+			            final int r = le.getSelectedRow();
+			            final int c = le.getSelectedColumn();
+			            final String val = (String)le.getValueAt(r, c);
+			            textFieldID.setText(val);
+			        }}
+			    });	
 	}
 }
