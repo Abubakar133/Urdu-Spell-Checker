@@ -35,6 +35,7 @@ public class viewandupdate extends JFrame {
 	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;
+	JRadioButton search;
 	view_update obj1=new view_update();
 	List words =new ArrayList();
 	boolean T=false;
@@ -258,7 +259,109 @@ public class viewandupdate extends JFrame {
 		lblFrequency.setFont(new Font("Tw Cen MT", Font.BOLD, 18));
 		lblFrequency.setBounds(587, 311, 84, 32);
 		contentPane.add(lblFrequency);
-		ButtonGroup bg=new ButtonGroup();;
+		
+		JButton btnNewButton_1_1_1_1 = new JButton("Search");
+		btnNewButton_1_1_1_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				DefaultTableModel dm = (DefaultTableModel)table.getModel();
+				dm.getDataVector().removeAllElements();
+				dm.fireTableDataChanged();
+				String id=textField.getText();
+				String Wor=textField_1.getText();
+				
+
+				try {
+				 if(id!=null) {
+				for (int i = 0; i <words.size();i=i+3)  {
+					if(id.equals(words.get(i))) {
+						
+					int j=0;
+					
+					Object[] B_Data = new Object[3];
+					 B_Data[j]= words.get(i);
+		            B_Data[j+1]= words.get(i+1);
+		              B_Data[j+2]=words.get(i+2);
+					
+		       
+		        MD.addRow(B_Data);
+		        break;
+				 }
+				}
+				 table.setModel(MD);
+			}
+			
+			   if(Wor!=null) {
+				
+				for (int i = 0; i <words.size();i=i+3)  {
+					if(Wor.equals(words.get(i+1))) {
+						
+					int j=0;
+					
+					Object[] B_Data = new Object[3];
+					 B_Data[j]= words.get(i);
+		            B_Data[j+1]= words.get(i+1);
+		              B_Data[j+2]=words.get(i+2);
+					
+		       
+		        MD.addRow(B_Data);
+		        break;
+				 }
+				}
+				 table.setModel(MD);
+			}
+			   if(textField_2.getText()!=null) {
+				   int fre=Integer.parseInt(textField_2.getText());
+					for (int i = 0; i <words.size();i=i+3)  {
+						String Str=(String) words.get(i+2);
+						int f= Integer.parseInt(Str );
+						if(f<= fre) {
+							
+						int j=0;
+						
+						Object[] B_Data = new Object[3];
+						 B_Data[j]= words.get(i);
+			            B_Data[j+1]= words.get(i+1);
+			              B_Data[j+2]=words.get(i+2);
+						
+			       
+			        MD.addRow(B_Data);
+			       
+					 }
+					}
+					 table.setModel(MD);
+				}
+				}
+				catch(NumberFormatException e1) {
+					
+				}
+			}
+				
+		});
+		btnNewButton_1_1_1_1.setFont(new Font("Trebuchet MS", Font.BOLD, 16));
+		btnNewButton_1_1_1_1.setBounds(651, 520, 109, 32);
+		contentPane.add(btnNewButton_1_1_1_1);
+		
+		 search = new JRadioButton("");
+		search.setBounds(651, 501, 28, 21);
+		contentPane.add(search);
+		ButtonGroup bg=new ButtonGroup();
+        bg.add(search);
+        bg.add(search);
+        getContentPane().add(search);;
+		 
+		
+		 
+		 search.addActionListener(new ActionListener() {
+
+			 public void actionPerformed(ActionEvent e) {
+
+				 textField_1.setEditable(true);
+				 textField.setEditable(true);
+				 textField_2.setEditable(true);
+
+			 }
+
+			 });
 		
 		
 	}
