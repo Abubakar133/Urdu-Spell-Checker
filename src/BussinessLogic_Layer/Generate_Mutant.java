@@ -48,8 +48,8 @@ public class Generate_Mutant {
 		Alif.add("ت");  CH.add("تھ");//2         //4 //4  
 		
 		Alif.add("ط");  CH.add("ت");         //5
-		Alif.add("ح");  CH.add("�?");          //6  
-		Alif.add("�?");  CH.add("ح");         //7 
+		Alif.add("ح");  CH.add("�?");          //6  
+		Alif.add("�?");  CH.add("ح");         //7 
 		
 		Alif.add("ڈ");  CH.add("ڑ"); //2         //8  
 		Alif.add("ڈ");  CH.add("ڈھ");//2         //9 //9  
@@ -102,7 +102,7 @@ public class Generate_Mutant {
 		Alif.add("و");  CH.add("وھ");         //42
 		Alif.add("ی");  CH.add("یھ");         //43		
 		
-		for(int i=0;i<words.size();i++) {
+		for(int i=0;i<30;i++) {
 		String word=words.get(i);
 		int K=Key.get(i);
 		ArrayList<String> wor = new ArrayList<String>();
@@ -234,11 +234,14 @@ public class Generate_Mutant {
 			    	
 			    }
 			    else {
-			    	if(!NewWord.contains(N.toString())) {
-			    	NewWord.add(N.toString());
+			    	String St=N.toString();
+			    	if((St!=word)) {
+			    	if(!NewWord.contains(St.toString())) {
+			    	NewWord.add(St);
 			          NewKey.add(K);
+				     System.out.println(St);
 				
-				
+			    	}
 			    	}
 			    	N.setLength(0);
 			    }
