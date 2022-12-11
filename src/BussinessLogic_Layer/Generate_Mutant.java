@@ -48,8 +48,8 @@ public class Generate_Mutant {
 		Alif.add("ت");  CH.add("تھ");//2         //4 //4  
 		
 		Alif.add("ط");  CH.add("ت");         //5
-		Alif.add("ح");  CH.add("�?");          //6  
-		Alif.add("�?");  CH.add("ح");         //7 
+		Alif.add("ح");  CH.add("ہ");          //6  
+		Alif.add("ہ");  CH.add("ح");         //7 
 		
 		Alif.add("ڈ");  CH.add("ڑ"); //2         //8  
 		Alif.add("ڈ");  CH.add("ڈھ");//2         //9 //9  
