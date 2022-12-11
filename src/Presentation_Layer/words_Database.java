@@ -14,8 +14,10 @@ import javax.swing.JFileChooser;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.awt.event.ActionEvent;
-import BussinessLogic_Layer.Make_Word;
-import BussinessLogic_Layer.ReadXML;
+
+import BussinessLogic_Layer.Facade;
+import BussinessLogic_Layer.IFacade;
+
 
 import javax.swing.JTextField;
 import javax.swing.JRadioButton;
@@ -31,6 +33,7 @@ public class words_Database extends JFrame {
 	private JTextField textField_1;
 	private JTextField textField_2;
 	static words_Database frame = new words_Database();
+	private static IFacade FS=new Facade();
 	/**
 	 * Launch the application.
 	 */
@@ -102,9 +105,9 @@ public class words_Database extends JFrame {
 				
 				else if((field.isBlank())) {
                 	textField.setText("");
-                	ReadXML f=new ReadXML();
+                	//ReadXML f=new ReadXML();
                 	
-					ReadXML.XML_Single(File3);
+					FS.XML_Single(File3);
 					textField.setText("");				
                 	}
 
@@ -132,8 +135,9 @@ public class words_Database extends JFrame {
 		btnNewButton_2.setBackground(new Color(245, 245, 220));
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Make_Word obj=new Make_Word();
-				obj.controller();
+				
+				
+				FS.controller();
 				
 			}
 		});
@@ -152,8 +156,9 @@ public class words_Database extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				if(rdbtnNewRadioButton.isSelected()) {
 				String Word=textField_1 .getText();
-				Make_Word obj=new Make_Word();
-				obj.Word_Single(Word);
+
+                   
+				FS.Word_Single(Word);
 				}
 				else {
 					JOptionPane.showMessageDialog(null,"Please Select Button"); 
@@ -199,8 +204,9 @@ public class words_Database extends JFrame {
 		btnNewButton_5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				Make_Word obj=new Make_Word();
-				obj.delete(true);
+				
+				
+				FS.delete(true);
 				
 			}
 		});
@@ -239,9 +245,9 @@ public class words_Database extends JFrame {
 		File Folder= new File(path);
 		File[] file = Folder.listFiles();
 	
-				ReadXML f=new ReadXML();
+				
 			
-      			ReadXML.XML_Folder(file);
+      			FS.XML_Folder(file);
 				
 		textField.setText("");
 		

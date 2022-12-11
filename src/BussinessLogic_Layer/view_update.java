@@ -7,9 +7,8 @@ import Database_Layer.Facade;
 import Database_Layer.IFacade;
 import Database_Layer.Read_words;
 
-public class view_update {
-	Read_words obj = new Read_words();
-	DatabaseWord obj2 = new DatabaseWord();
+public class view_update implements view_updateF {
+	
 	private Facade Fs;
 	
 	public List getWords() {

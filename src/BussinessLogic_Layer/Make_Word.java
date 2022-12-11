@@ -13,7 +13,7 @@ import Database_Layer.Database_Retrive;
 import Database_Layer.Facade;
 import Database_Layer.IFacade;
 
-public class Make_Word {
+public class Make_Word implements Make_WordF {
 
 	
 	
@@ -49,7 +49,7 @@ public class Make_Word {
     }
     
 	@SuppressWarnings("unchecked")
-	public static List<String> Word_Creator(List<String> obj ) {
+	public List<String> Word_Creator(List<String> obj ) {
 		
 		
 		
@@ -77,12 +77,12 @@ public class Make_Word {
         
         
     }
-	public static List<String> Word_List() {
+	public List<String> Word_List() {
 	   	 
 	   	 return w_DB;
 	    }
 	
-	public static void HashMap_Fun(List<String> word_List) {
+	public void HashMap_Fun(List<String> word_List) {
 		
       HashMap <String,Integer>T3=new HashMap<>(); 
         
@@ -107,7 +107,7 @@ public class Make_Word {
 	}
 	
 	
-    public static List<Integer> Word_Fre() {
+    public List<Integer> Word_Fre() {
    	 
    	 return F_DB;
     }

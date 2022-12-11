@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
-public class ReadXML {
+public class ReadXML implements ReadXMLF {
 	public ReadXML(){
 		
 		
@@ -28,7 +28,7 @@ public class ReadXML {
 	//static DatabasePG obj=new DatabasePG();
 	 
 	static Facade Fs;
-	public static List<String> RP() {
+	public List<String> RP() {
 	     return XMLpg;
 	 
    }
@@ -36,7 +36,7 @@ public class ReadXML {
     
     
      
-public static void XML_Single(File S_F) {
+public void XML_Single(File S_F) {
 	Fs = new IFacade();
 		try {
 			  
@@ -74,15 +74,15 @@ public static void XML_Single(File S_F) {
 			}
 		
 	}
-public static List<String> RT() {
+public List<String> RT() {
   	 return XMLtitle;
    }
-   public static List<String> RA() {
+   public List<String> RA() {
   	 
   	 return XMLauthor;
    }
   static int i=1;
-	public static void XML_Folder(File[] file_Folder)   
+	public void XML_Folder(File[] file_Folder)   
 	{  
 		
 		Fs = new IFacade();

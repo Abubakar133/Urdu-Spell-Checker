@@ -15,8 +15,8 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
 
-import BussinessLogic_Layer.Make_Word;
-import BussinessLogic_Layer.view_update;
+import BussinessLogic_Layer.Facade;
+import BussinessLogic_Layer.IFacade;
 
 import java.awt.Font;
 import java.awt.event.ActionListener;
@@ -41,10 +41,11 @@ public class viewandupdate extends JFrame {
 	JRadioButton update;
 	JRadioButton delete;
 	JRadioButton search;
-	view_update obj1 = new view_update();
+	
 	List words = new ArrayList();
 	boolean T = false;
 	HomeScreen HS;
+	private IFacade FS =new Facade();
 	static viewandupdate frame = new viewandupdate();
 
 	/**
@@ -140,7 +141,7 @@ public class viewandupdate extends JFrame {
 				dm.getDataVector().removeAllElements();
 				dm.fireTableDataChanged();
 
-				words = obj1.getWords();
+				words = FS.getWords();
 				int c = 1;
 				for (int i = 0; i < words.size(); i = i + 3) {
 
@@ -198,8 +199,8 @@ public class viewandupdate extends JFrame {
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				Make_Word obj = new Make_Word();
-				obj.Word_Single(textFieldword.getText());
+				
+				FS.Word_Single(textFieldword.getText());
 
 			}
 		});
@@ -214,7 +215,7 @@ public class viewandupdate extends JFrame {
 
 				int id = Integer.parseInt(textFieldID.getText());
 				int fre = Integer.parseInt(textField_2.getText());
-				obj1.update(textFieldword.getText(), id, fre);
+				FS.update(textFieldword.getText(), id, fre);
 
 			}
 		});
@@ -228,7 +229,7 @@ public class viewandupdate extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 
 				int id = Integer.parseInt(textFieldID.getText());
-				obj1.delete(id);
+				FS.delete(id);
 
 			}
 		});
