@@ -34,6 +34,7 @@ public class words_Database extends JFrame {
 	private JTextField textField_2;
 	static words_Database frame = new words_Database();
 	private static IFacade FS=new Facade();
+	JProgressBar progressBar;
 	/**
 	 * Launch the application.
 	 */
@@ -61,7 +62,7 @@ public class words_Database extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 848, 450);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(211, 211, 211));
+		contentPane.setBackground(new Color(210, 180, 140));
 		contentPane.setBorder(new EmptyBorder(0, 0, 0, 0));
 
 		setContentPane(contentPane);
@@ -75,16 +76,19 @@ public class words_Database extends JFrame {
 		
 		
 		JButton btnNewButton = new JButton("Browser");
+		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 10));
 		btnNewButton.setForeground(Color.DARK_GRAY);
-		btnNewButton.setBackground(new Color(238, 232, 170));
+		btnNewButton.setBackground(new Color(224, 255, 255));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				progressBar.setValue(1);
 				JFileChooser Chooser = new JFileChooser();
 				int response=Chooser.showOpenDialog(null);
 				if(response==JFileChooser.APPROVE_OPTION) {
 					File file =new File (Chooser.getSelectedFile().getAbsolutePath());
 					File3=file;
 					textField_2.setText(File3.getName());
+					progressBar.setValue(100);
 				}
 			}
 		});
@@ -92,15 +96,17 @@ public class words_Database extends JFrame {
 		contentPane.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Upload PG");
+		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 10));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String field=textField.getText();
+				progressBar.setValue(1);
 				System.out.println(field);
 				try {
 					
 				if(field.isBlank()&&File3==null) {
 					JOptionPane.showMessageDialog(null,"Please Select Something");
-					
+					progressBar.setValue(1);
 				}
 				
 				else if((field.isBlank())) {
@@ -108,17 +114,20 @@ public class words_Database extends JFrame {
                 	//ReadXML f=new ReadXML();
                 	
 					FS.XML_Single(File3);
-					textField.setText("");				
+					textField.setText("");	
+					progressBar.setValue(100);
                 	}
 
                 else  {
                 	String field1=textField.getText();
                 	if((field1.isEmpty())){
                 		JOptionPane.showMessageDialog(null,"Please Select Something");
+                		progressBar.setValue(1);
                 	}
                 	else {
                 	File3=null;
 					getFolder();
+					progressBar.setValue(100);
                 	}
 				}
                 }
@@ -127,18 +136,19 @@ public class words_Database extends JFrame {
                 }
 			}
 		});
-		btnNewButton_1.setBackground(new Color(245, 245, 220));
+		btnNewButton_1.setBackground(new Color(169, 169, 169));
 		btnNewButton_1.setBounds(559, 238, 104, 41);
 		contentPane.add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("Generate Word");
-		btnNewButton_2.setBackground(new Color(245, 245, 220));
+		btnNewButton_2.setFont(new Font("Tahoma", Font.BOLD, 10));
+		btnNewButton_2.setBackground(new Color(169, 169, 169));
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				progressBar.setValue(1);
 				
 				FS.controller();
-				
+				progressBar.setValue(100);
 			}
 		});
 		btnNewButton_2.setBounds(71, 238, 122, 41);
@@ -148,24 +158,28 @@ public class words_Database extends JFrame {
 		contentPane.add(textField_1);
 		textField_1.setColumns(10);
 		JRadioButton rdbtnNewRadioButton = new JRadioButton("Select to Insert Word");
+		rdbtnNewRadioButton.setBackground(new Color(210, 180, 140));
 		rdbtnNewRadioButton.setBounds(147, 199, 134, 21);
 		contentPane.add(rdbtnNewRadioButton);
 		
 		JButton btnNewButton_3 = new JButton("Upload Word");
+		btnNewButton_3.setFont(new Font("Tahoma", Font.BOLD, 10));
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				progressBar.setValue(1);
 				if(rdbtnNewRadioButton.isSelected()) {
 				String Word=textField_1 .getText();
 
                    
 				FS.Word_Single(Word);
+				progressBar.setValue(100);
 				}
 				else {
 					JOptionPane.showMessageDialog(null,"Please Select Button"); 
 				}
 			}
 		});
-		btnNewButton_3.setBackground(new Color(245, 245, 220));
+		btnNewButton_3.setBackground(new Color(169, 169, 169));
 		btnNewButton_3.setBounds(216, 238, 134, 41);
 		contentPane.add(btnNewButton_3);
 		
@@ -176,10 +190,12 @@ public class words_Database extends JFrame {
 		textField_2.setColumns(10);
 		
 		JLabel lblNewLabel = new JLabel("Insert Word");
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 10));
 		lblNewLabel.setBounds(182, 121, 122, 13);
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("Insert Address");
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 10));
 		lblNewLabel_1.setBounds(489, 122, 104, 13);
 		contentPane.add(lblNewLabel_1);
 		
@@ -192,36 +208,33 @@ public class words_Database extends JFrame {
 		lblNewLabel_3.setBounds(622, 189, 32, 13);
 		contentPane.add(lblNewLabel_3);
 		
-		
-		
-		
-		JLabel lblNewLabel_4 = new JLabel("<");
-		lblNewLabel_4.setFont(new Font("Tahoma", Font.BOLD, 17));
-		lblNewLabel_4.setBounds(10, 382, 26, 21);
-		contentPane.add(lblNewLabel_4);
-		
 		JButton btnNewButton_5 = new JButton("Clear words");
+		btnNewButton_5.setBackground(new Color(169, 169, 169));
+		btnNewButton_5.setFont(new Font("Tahoma", Font.BOLD, 10));
 		btnNewButton_5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
 				
 				
 				FS.delete(true);
+				progressBar.setValue(100);
 				
 			}
 		});
-		btnNewButton_5.setBounds(71, 306, 122, 41);
+		btnNewButton_5.setBounds(71, 306, 279, 41);
 		contentPane.add(btnNewButton_5);
 		
-		JProgressBar progressBar = new JProgressBar();
+		 progressBar = new JProgressBar();
+		progressBar.setFont(new Font("Tahoma", Font.BOLD, 10));
 		progressBar.setBounds(289, 361, 264, 21);
 		contentPane.add(progressBar);
 		progressBar.setValue(0);
 		progressBar.setOpaque(true);
-		progressBar.setForeground(Color.YELLOW);
+		progressBar.setForeground(Color.blue);
 		progressBar.setStringPainted(true);
 		
 		JButton btnNewButton_4 = new JButton("Home");
+		btnNewButton_4.setBackground(new Color(230, 230, 250));
 		btnNewButton_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				HomeScreen.frame1.setVisible(true);
@@ -232,7 +245,7 @@ public class words_Database extends JFrame {
 			}
 		});
 		btnNewButton_4.setFont(new Font("Tahoma", Font.BOLD, 14));
-		btnNewButton_4.setBounds(682, 29, 110, 41);
+		btnNewButton_4.setBounds(705, 39, 87, 31);
 		contentPane.add(btnNewButton_4);
 		
 		

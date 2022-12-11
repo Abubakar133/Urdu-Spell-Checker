@@ -10,6 +10,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JProgressBar;
 import javax.swing.border.EmptyBorder;
 
 import BussinessLogic_Layer.Generate_Mutant;
@@ -19,6 +20,7 @@ public class Mutants extends JFrame {
 
 	private JPanel contentPane;
 	static Mutants frame= new Mutants();
+	JProgressBar progressBar;
 	/**
 	 * Launch the application.
 	 */
@@ -49,13 +51,22 @@ public class Mutants extends JFrame {
 		contentPane.setLayout(null);
 		Generate_Mutant obj=new Generate_Mutant();
 		
+		progressBar = new JProgressBar();
+		progressBar.setFont(new Font("Tahoma", Font.BOLD, 10));
+		progressBar.setBounds(210, 361, 264, 21);
+		contentPane.add(progressBar);
+		progressBar.setValue(0);
+		progressBar.setOpaque(true);
+		progressBar.setForeground(Color.blue);
+		progressBar.setStringPainted(true);
 		
 		JButton btnNewButton = new JButton("Generate Mutant");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 							
-				
+				progressBar.setValue(00);
 				obj.Get_Words();
+				progressBar.setValue(100);
 			}
 		});
 		btnNewButton.setBounds(243, 179, 188, 42);
@@ -64,17 +75,17 @@ public class Mutants extends JFrame {
 		JButton btnNewButton_1 = new JButton("Insert To database");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				progressBar.setValue(0);
 				obj.Insert_DB();
-				
+				progressBar.setValue(100);
 			}
 		});
 		btnNewButton_1.setBounds(243, 267, 188, 42);
 		contentPane.add(btnNewButton_1);
 		
-		JLabel lblNewLabel = new JLabel("Spell Checker");
-		lblNewLabel.setFont(new Font("Wide Latin", Font.BOLD | Font.ITALIC, 26));
-		lblNewLabel.setBounds(185, 76, 327, 63);
+		JLabel lblNewLabel = new JLabel("Mutant Generator");
+		lblNewLabel.setFont(new Font("Wide Latin", Font.BOLD | Font.ITALIC, 20));
+		lblNewLabel.setBounds(180, 76, 327, 63);
 		contentPane.add(lblNewLabel);
 		
 		JButton btnNewButton_2 = new JButton("Home");

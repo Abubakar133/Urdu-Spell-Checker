@@ -104,7 +104,7 @@ public class Facade implements IFacade {
 	@Override
 	public void delete(boolean t) {
 		// TODO Auto-generated method stub
-		
+		word.delete(t);
 	}
 
 }

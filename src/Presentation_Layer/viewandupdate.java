@@ -10,10 +10,14 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.RowSorter;
 import javax.swing.ScrollPaneConstants;
+import javax.swing.SortOrder;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 
 import BussinessLogic_Layer.Facade;
 import BussinessLogic_Layer.IFacade;
@@ -24,6 +28,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
@@ -154,6 +159,8 @@ public class viewandupdate extends JFrame {
 					MD.addRow(B_Dat);
 				}
 				tableData.setModel(MD);
+				
+				
 
 			}
 
@@ -254,6 +261,10 @@ public class viewandupdate extends JFrame {
 		btnNewButton_1_1_2.setFont(new Font("Trebuchet MS", Font.BOLD, 16));
 		btnNewButton_1_1_2.setBounds(718, 463, 96, 32);
 		contentPane.add(btnNewButton_1_1_2);
+		
+		JTable table = new JTable(MD);
+        TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(table.getModel());
+        table.setRowSorter(sorter);
 
 		JButton btnNewButton_1_1_1_1 = new JButton("Search");
 		btnNewButton_1_1_1_1.setBackground(new Color(245, 222, 179));
