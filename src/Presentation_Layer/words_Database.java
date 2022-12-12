@@ -154,7 +154,7 @@ public class words_Database extends JFrame {
 			}
 		});
 		btnNewButton_1.setBackground(new Color(224, 255, 255));
-		btnNewButton_1.setBounds(561, 238, 117, 41);
+		btnNewButton_1.setBounds(561, 238, 149, 41);
 		contentPane.add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("Generate Word");
@@ -172,7 +172,7 @@ public class words_Database extends JFrame {
 		btnNewButton_2.setBounds(55, 238, 149, 41);
 		contentPane.add(btnNewButton_2);
 		textField_1 = new JTextField();
-		textField_1.setBounds(104, 145, 213, 31);
+		textField_1.setBounds(135, 145, 155, 31);
 		contentPane.add(textField_1);
 		textField_1.setColumns(10);
 		JRadioButton rdbtnNewRadioButton = new JRadioButton("Select to Insert Word");
