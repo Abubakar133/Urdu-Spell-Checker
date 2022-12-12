@@ -1,17 +1,20 @@
 package Presentation_Layer;
 
 import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import java.awt.Color;
-import javax.swing.JLabel;
-import javax.swing.ImageIcon;
 import java.awt.Font;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
+import java.awt.SystemColor;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.UIManager;
+import javax.swing.UIManager.LookAndFeelInfo;
+import javax.swing.UnsupportedLookAndFeelException;
+import javax.swing.border.EmptyBorder;
+import javax.swing.ImageIcon;
 
 public class HomeScreen extends JFrame {
 
@@ -24,6 +27,18 @@ public class HomeScreen extends JFrame {
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
+				for (LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
+					if ("Nimbus".equals(info.getName())) {
+						try {
+							UIManager.setLookAndFeel(info.getClassName());
+						} catch (ClassNotFoundException | InstantiationException | IllegalAccessException
+								| UnsupportedLookAndFeelException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+						break;
+					}
+				}
 				try {
 					 frame1 = new HomeScreen();
 					frame1.setVisible(true);
@@ -42,16 +57,16 @@ public class HomeScreen extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 636, 355);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(205, 92, 92));
+		contentPane.setBackground(SystemColor.desktop);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Welcome to Our Spell ");
+		JLabel lblNewLabel = new JLabel("Welcome to Our Spell Checker\r\n");
 		lblNewLabel.setFont(new Font("Viner Hand ITC", Font.BOLD | Font.ITALIC, 27));
-		lblNewLabel.setForeground(new Color(25, 25, 112));
-		lblNewLabel.setBounds(170, 26, 301, 89);
+		lblNewLabel.setForeground(SystemColor.text);
+		lblNewLabel.setBounds(103, 26, 406, 89);
 		contentPane.add(lblNewLabel);
 		
 		JButton btnNewButton = new JButton("XML Files");
@@ -107,5 +122,10 @@ public class HomeScreen extends JFrame {
 		btnViewWordTable.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btnViewWordTable.setBounds(245, 265, 130, 21);
 		contentPane.add(btnViewWordTable);
+		
+		JLabel lblNewLabel_1 = new JLabel("New label");
+		lblNewLabel_1.setIcon(new ImageIcon(HomeScreen.class.getResource("/images/Grey Minimal Modern Magic School Wisdom Spells Logo (3) (1).png")));
+		lblNewLabel_1.setBounds(536, 26, 80, 89);
+		contentPane.add(lblNewLabel_1);
 	}
 }
