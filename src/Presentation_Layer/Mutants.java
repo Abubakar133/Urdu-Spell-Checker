@@ -86,8 +86,8 @@ public class Mutants extends JFrame {
 				progressBar.setValue(1);
 				obj.Get_Words();
 				//progressBar.setValue();
-				progressBar.setValue(50);
-				obj.Insert_DB();
+				//progressBar.setValue(50);
+				//obj.Insert_DB();
 				progressBar.setValue(100);
 			}
 		});

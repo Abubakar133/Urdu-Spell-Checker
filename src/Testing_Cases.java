@@ -6,6 +6,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import BussinessLogic_Layer.CHeck_Words;
+import BussinessLogic_Layer.Generate_Mutant;
 import BussinessLogic_Layer.Make_Word;
 import BussinessLogic_Layer.ReadXML;
 import Database_Layer.DatabasePG;
@@ -15,7 +16,7 @@ import Database_Layer.Facade;
 import Database_Layer.IFacade;
 
 
-class UC1_Testing {
+class Testing_Cases {
 
 	 
 	 
@@ -43,6 +44,7 @@ class UC1_Testing {
 	{
 		DatabaseWord t=new DatabaseWord() ;
 		Make_Word t2=new Make_Word() ;
+		
 		List<String> w_DB = new ArrayList<String>();
 		t2.Word_Single("Abubakar");
 		w_DB=t.Test();
@@ -98,6 +100,17 @@ class UC1_Testing {
 		String name=w_DB.get(0);
 		
 		Assertions.assertEquals("Abubakar",name);
+		
+	}
+	@Test
+	public void checkduplication() {
+		
+		Generate_Mutant G=new Generate_Mutant();
+		ArrayList ar=new ArrayList();
+		ar.add("ibrahim");
+		ar.add("Abubakar");
+		ar.add("ibrahim");
+		Assertions.assertTrue(G.checkduplication(ar, "ibrahim"));
 		
 	}
 	

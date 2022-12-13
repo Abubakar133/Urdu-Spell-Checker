@@ -32,11 +32,17 @@ public class DatabaseWord implements DatabaseWordF {
 			
 			con = obj1.Connec();
 			for (int i = 0; i < word_DB.size(); i++) {
+				String St=word_DB.get(i);
 				int Fre = (int) word_Fre.get(i);
-
+				
+				if(St.length()>10&&Fre==1) {
+				
+				}
+				else {
 				PreparedStatement st = con
 						.prepareStatement("insert into word values(" + null + ",'" + word_DB.get(i) + "'," + Fre + ")");
 				st.execute();
+				}
 
 			}
 			JOptionPane.showMessageDialog(null, "Word Sent Successfully in Database");

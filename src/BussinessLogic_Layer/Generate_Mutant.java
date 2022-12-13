@@ -272,4 +272,17 @@ public class Generate_Mutant {
 		
 		return NewKey;
 	}
+    
+    public boolean checkduplication(ArrayList Arr,String ar2) {
+    	
+    	if(Arr.contains(ar2)) {
+    		
+    		return true;
+    	}
+    	else {
+		return false;
+    	}
+    	
+    	
+    }
 }

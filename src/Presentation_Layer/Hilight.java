@@ -219,14 +219,25 @@ public class Hilight extends JFrame {
 		      lblNewLabel_2.setBounds(760, 476, 91, 13);
 		      contentPane.add(lblNewLabel_2);
 		      
-		      JButton btnNewButton_3 = new JButton("Home");
+		      JButton btnNewButton_4 = new JButton("Home");
+		      btnNewButton_4.setIcon(new ImageIcon(Hilight.class.getResource("/images/home-icon.png")));
+		      btnNewButton_4.addActionListener(new ActionListener() {
+		      	public void actionPerformed(ActionEvent e) {
+                    HomeScreen.frame1.setVisible(true);
+					
+		      		frame.dispose();
+		      		
+		      	}
+		      });
+		      btnNewButton_4.setBounds(807, 45, 124, 28);
+		      contentPane.add(btnNewButton_4);
+		      
+		      JButton btnNewButton_3 = new JButton("");
 		      btnNewButton_3.setIcon(new ImageIcon(Hilight.class.getResource("/images/home-icon.png")));
 		      btnNewButton_3.addActionListener(new ActionListener() {
 		      	public void actionPerformed(ActionEvent e) {
 		      		
-		      		HomeScreen.frame1.setVisible(true);
-					
-		      		frame.dispose();
+		      		
 		            
 		      	}
 		      });
