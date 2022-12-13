@@ -15,6 +15,7 @@ import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
@@ -46,6 +47,7 @@ public class viewandupdate extends JFrame {
 	JRadioButton update;
 	JRadioButton delete;
 	JRadioButton search;
+	JRadioButton clear;
 	
 	List words = new ArrayList();
 	boolean T = false;
@@ -157,7 +159,7 @@ public class viewandupdate extends JFrame {
 				DefaultTableModel dm = (DefaultTableModel) tableData.getModel();
 				dm.getDataVector().removeAllElements();
 				dm.fireTableDataChanged();
-
+                 words.clear();
 				words = FS.getWords();
 				int c = 1;
 				for (int i = 0; i < words.size(); i = i + 3) {
@@ -181,21 +183,21 @@ public class viewandupdate extends JFrame {
 		contentPane.add(btnNewButton);
 
 		textFieldID = new JTextField();
-		textFieldID.setBackground(new Color(245, 245, 220));
+		textFieldID.setBackground(new Color(255, 255, 255));
 		textFieldID.setEditable(false);
 		textFieldID.setBounds(671, 185, 132, 32);
 		contentPane.add(textFieldID);
 		textFieldID.setColumns(10);
 
 		textFieldword = new JTextField();
-		textFieldword.setBackground(new Color(250, 250, 210));
+		textFieldword.setBackground(new Color(255, 255, 255));
 		textFieldword.setEditable(false);
 		textFieldword.setColumns(10);
 		textFieldword.setBounds(671, 246, 132, 32);
 		contentPane.add(textFieldword);
 
 		textField_2 = new JTextField();
-		textField_2.setBackground(new Color(250, 250, 210));
+		textField_2.setBackground(new Color(255, 255, 255));
 		textField_2.setEditable(false);
 		textField_2.setColumns(10);
 		textField_2.setBounds(671, 311, 132, 32);
@@ -224,8 +226,13 @@ public class viewandupdate extends JFrame {
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				
+				if(Insert.isSelected()) {
 				FS.Word_Single(textFieldword.getText());
+				}
+				else {
+					
+					JOptionPane.showMessageDialog(null, "Please First Select Something");
+				}
 
 			}
 		});
@@ -238,9 +245,16 @@ public class viewandupdate extends JFrame {
 		btnNewButton_1_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
+				if(update.isSelected()) {
 				int id = Integer.parseInt(textFieldID.getText());
 				int fre = Integer.parseInt(textField_2.getText());
 				FS.update(textFieldword.getText(), id, fre);
+				}
+				else {
+					
+					JOptionPane.showMessageDialog(null, "Please First Select Something");
+					
+				}
 
 			}
 		});
@@ -252,9 +266,15 @@ public class viewandupdate extends JFrame {
 		btnNewButton_1_1_1.setBackground(SystemColor.activeCaptionBorder);
 		btnNewButton_1_1_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
+                  if(delete.isSelected()) {
 				int id = Integer.parseInt(textFieldID.getText());
 				FS.delete(id);
+                  }
+                  else {
+                	  
+                	  JOptionPane.showMessageDialog(null, "Please First Select Something");
+                	  
+                  }
 
 			}
 		});
@@ -289,6 +309,8 @@ public class viewandupdate extends JFrame {
 		btnNewButton_1_1_1_1.setBackground(SystemColor.activeCaptionBorder);
 		btnNewButton_1_1_1_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				if(search.isSelected()) {
 				DefaultTableModel dm = (DefaultTableModel) tableData.getModel();
 				dm.getDataVector().removeAllElements();
 				dm.fireTableDataChanged();
@@ -353,7 +375,12 @@ public class viewandupdate extends JFrame {
 
 				}
 			}
-
+			
+			else {
+				
+				JOptionPane.showMessageDialog(null, "Please First Select Something");
+			}
+			}
 		});
 		btnNewButton_1_1_1_1.setFont(new Font("Trebuchet MS", Font.BOLD, 16));
 		btnNewButton_1_1_1_1.setBounds(718, 463, 96, 32);
@@ -371,8 +398,14 @@ public class viewandupdate extends JFrame {
 
 		delete = new JRadioButton("");
 		delete.setBackground(SystemColor.activeCaptionText);
-		delete.setBounds(583, 446, 28, 21);
+		delete.setBounds(589, 444, 28, 21);
 		contentPane.add(delete);
+		
+		clear = new JRadioButton("");
+		clear.setBackground(Color.BLACK);
+		clear.setBounds(589, 496, 28, 21);
+		contentPane.add(clear);
+
 
 		search = new JRadioButton("");
 		search.setBackground(SystemColor.desktop);
@@ -384,11 +417,14 @@ public class viewandupdate extends JFrame {
 		bg.add(search);
 		bg.add(delete);
 		bg.add(search);
+		bg.add(clear);
 
 		getContentPane().add(Insert);
 		getContentPane().add(update);
 		getContentPane().add(delete);
 		getContentPane().add(search);
+		getContentPane().add(clear);
+		
 
 		JButton btnNewButton_2 = new JButton("Home");
 		btnNewButton_2.setIcon(new ImageIcon(viewandupdate.class.getResource("/images/home-icon.png")));
@@ -405,22 +441,30 @@ public class viewandupdate extends JFrame {
 		contentPane.add(btnNewButton_2);
 
 		Insert.addAncestorListener(null);
-		;
+		
 		update.addAncestorListener(null);
 
-		if (Insert.isSelected()) {
-			textFieldID.setEnabled(true);
-		} else if (update.isSelected()) {
-			textFieldID.setEnabled(false);
-		}
+//		if (Insert.isSelected()) {
+//			textFieldID.setEnabled(true);
+//		} else if (update.isSelected()) {
+//			textFieldID.setEnabled(false);
+//		}
 
-		Insert.addActionListener(new ActionListener() {
+		textFieldword.setText("///");
+		textFieldID.setText("///");
+		textField_2.setText("///");
+		
+		 		Insert.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
-
+				
 				textFieldword.setEditable(true);
 				textFieldID.setEditable(false);
+				
 				textField_2.setEditable(false);
+				textFieldID.setText("///");
+				textFieldword.setText("");
+				textField_2.setText("///");
 
 			}
 
@@ -432,6 +476,10 @@ public class viewandupdate extends JFrame {
 				textFieldword.setEditable(true);
 				textFieldID.setEditable(true);
 				textField_2.setEditable(true);
+				textFieldID.setText("");
+				textFieldword.setText("");
+				textField_2.setText("");
+
 			}
 
 		});
@@ -442,6 +490,10 @@ public class viewandupdate extends JFrame {
 				textFieldword.setEditable(false);
 				textFieldID.setEditable(true);
 				textField_2.setEditable(false);
+				textFieldID.setText("");
+				textFieldword.setText("///");
+				textField_2.setText("///");
+
 
 			}
 
@@ -453,6 +505,25 @@ public class viewandupdate extends JFrame {
 				textFieldword.setEditable(true);
 				textFieldID.setEditable(true);
 				textField_2.setEditable(true);
+				textFieldID.setText("");
+				textFieldword.setText("");
+				textField_2.setText("");
+
+
+			}
+
+		});
+		clear.addActionListener(new ActionListener() {
+
+			public void actionPerformed(ActionEvent e) {
+
+				textFieldword.setEditable(false);
+				textFieldID.setEditable(false);
+				textField_2.setEditable(false);
+				textFieldID.setText("///");
+				textFieldword.setText("///");
+				textField_2.setText("///");
+
 
 			}
 
@@ -462,12 +533,14 @@ public class viewandupdate extends JFrame {
 			@Override
 			public void mouseClicked(final MouseEvent e) {
 				try {
+					if(update.isSelected()||delete.isSelected()||search.isSelected()) {
 					if (e.getClickCount() == 1) {
 						final JTable le = (JTable) e.getSource();
 						final int r = le.getSelectedRow();
 						final int c = le.getSelectedColumn();
 						final String val = (String) le.getValueAt(r, c);
 						textFieldID.setText(val);
+					}
 					}
 				} catch (Exception e1) {
 

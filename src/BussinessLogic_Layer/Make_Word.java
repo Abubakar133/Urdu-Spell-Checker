@@ -4,6 +4,7 @@ import java.text.BreakIterator;
 import java.text.Normalizer;
 import java.text.Normalizer.Form;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -28,7 +29,7 @@ public class Make_Word implements Make_WordF {
     
     
  
-   // static DatabaseWord T1= new DatabaseWord();
+   
     
     public void controller() {
     	
@@ -46,6 +47,8 @@ public class Make_Word implements Make_WordF {
     	
     	F_DB.add(010);
     	Fs.Word_Data();
+    	w_DB.clear();
+    	F_DB.clear();
     }
     
 	@SuppressWarnings("unchecked")
@@ -68,10 +71,12 @@ public class Make_Word implements Make_WordF {
 	        int first = l1;
 	        l1 = cn.next();
 	        if (l1 != BreakIterator.DONE && Character.isLetterOrDigit(P.charAt(first))) {
-	            Word_List.add(P.substring(first, l1));
+	            Word_List.add(P.substring(first,l1));
 	        }
 	    }
 		}
+		
+		
    	 
         return Word_List;
         
@@ -83,6 +88,7 @@ public class Make_Word implements Make_WordF {
 	    }
 	
 	public void HashMap_Fun(List<String> word_List) {
+		
 		
       HashMap <String,Integer>T3=new HashMap<>(); 
         
@@ -99,10 +105,21 @@ public class Make_Word implements Make_WordF {
         {  
         	String word=entry.getKey();
         	int Key=entry.getValue();
+        	boolean numeric = true;
+
+            numeric = word.matches("-?\\d+(\\.\\d+)?");
+        	if(!numeric) {
        	     w_DB.add(word);
        	     F_DB.add(Key);
+       	   
+        	}
     
         }
+//        for(int i=0;i<100;i++) {
+//			
+//			String St = w_DB.get(i).replaceAll("[^a-zA-Z0-9.ءآأؤإئابةتثجحخدذرزسشصضطظعغفقكلمنهوي ]", "");
+//			  System.out.println( St);
+//		}
           
 	}
 	

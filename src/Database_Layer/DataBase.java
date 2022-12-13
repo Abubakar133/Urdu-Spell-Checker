@@ -11,7 +11,8 @@ import TransferData.Data_Getter;
 import TransferData.Data_Setter;
 
 public class DataBase {
-	
+	Connection con;
+	DataBaseConnection obj1 = DataBaseConnection.getInstance();
 public ArrayList<String> Retrive_Data() {
 		  
 		
@@ -19,7 +20,8 @@ public ArrayList<String> Retrive_Data() {
 		
 		
 		try {
-	    	Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/spell_checker","root","");
+			con=obj1.Connec();
+	    	
 	    	
 	    	if (!con.isClosed())
 	    	   {
@@ -36,7 +38,7 @@ public ArrayList<String> Retrive_Data() {
 	    	        
 	    	      }
 	    	     
-	    	      con.close();
+	    	      
 	    	   }
 	    	   else
 	    	      System.out.println("fail");

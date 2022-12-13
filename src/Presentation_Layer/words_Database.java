@@ -121,12 +121,12 @@ public class words_Database extends JFrame {
 				System.out.println(field);
 				try {
 					
-				if(field.isBlank()&&File3==null) {
+				if(field.isEmpty()&&File3==null) {
 					JOptionPane.showMessageDialog(null,"Please Select Something");
 					progressBar.setValue(1);
 				}
 				
-				else if((field.isBlank())) {
+				else if((field.isEmpty())) {
                 	textField.setText("");
                 	//ReadXML f=new ReadXML();
                 	

@@ -15,7 +15,8 @@ public class Insert_to_Database {
 	static ArrayList<String> NewWord = new ArrayList<String>();
 	static ArrayList<Integer> NewKey = new ArrayList<Integer>();
 	Data_Setter obj=new Data_Setter();
-	
+	Connection con;
+	DataBaseConnection obj1 = DataBaseConnection.getInstance();
 	public void get_NWord() {
 		  NewWord=obj.Set_Word(); 
 		  
@@ -33,7 +34,8 @@ public class Insert_to_Database {
 	
 		  
 	  try { 
-		  Connection con =DriverManager.getConnection("jdbc:mysql://localhost:3306/spell_checker","root","");
+		  con=obj1.Connec();
+		  
 		  for(int i=0;i<NewWord.size();i++) { 
 			  
 	  
@@ -41,7 +43,7 @@ public class Insert_to_Database {
 	  
 	  
 	  
-	  } con.close(); 
+	  }  
 	  JOptionPane.showMessageDialog(null,"Data Inserted SUCCESSFULLY"); 
 	  } 
 	  catch(SQLException e) 

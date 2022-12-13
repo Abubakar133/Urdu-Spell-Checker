@@ -83,8 +83,11 @@ public class Mutants extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 							
-				progressBar.setValue(00);
+				progressBar.setValue(1);
 				obj.Get_Words();
+				//progressBar.setValue();
+				progressBar.setValue(50);
+				obj.Insert_DB();
 				progressBar.setValue(100);
 			}
 		});
@@ -125,6 +128,8 @@ public class Mutants extends JFrame {
 		});
 		btnNewButton_2.setBounds(537, 51, 106, 32);
 		contentPane.add(btnNewButton_2);
+		
 	}
+	
 
 }

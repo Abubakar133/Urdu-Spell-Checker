@@ -19,8 +19,12 @@ import javax.swing.UIManager;
 import javax.swing.UIManager.LookAndFeelInfo;
 import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.border.LineBorder;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
 import BussinessLogic_Layer.CHeck_Words;
+//import LogicLayer.UrduString;
+
 import javax.swing.ImageIcon;
 
 @SuppressWarnings("serial")
@@ -226,10 +230,21 @@ public class Hilight extends JFrame {
 		            
 		      	}
 		      });
-		      btnNewButton_3.setFont(new Font("Tahoma", Font.BOLD, 14));
-		      btnNewButton_3.setBounds(843, 53, 106, 31);
-		      contentPane.add(btnNewButton_3);
 		      
+
+		      
+		      comboBox.addActionListener(new ActionListener() {
+		    	  
+		            public void actionPerformed(ActionEvent e)
+		            
+		            {      
+		            	comboBox_1.removeAllItems();
+		            	CHeck_Words obj=new CHeck_Words();
+		            	String Nword=obj.Word((String) comboBox.getSelectedItem());
+						comboBox_1.addItem(Nword);
+
+		            }
+		        });  
 		
 	}
 }

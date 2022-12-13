@@ -12,12 +12,12 @@ import javax.swing.JOptionPane;
 
 public class Read_words implements Read_wordsF {
 	static List<String> A_Str = new ArrayList<String>();
-
+	Connection con;
+	DataBaseConnection obj = DataBaseConnection.getInstance();
 	public void WordST() {
 		A_Str.clear();
 		try {
-			Connection con;
-			DataBaseConnection obj = DataBaseConnection.getInstance();
+			
 			con = obj.Connec();
 			if (!con.isClosed()) {
 				PreparedStatement ps = con.prepareStatement("SELECT * from word ORDER by frequency");
@@ -33,7 +33,7 @@ public class Read_words implements Read_wordsF {
 
 				}
 
-				con.close();
+				
 
 			} else
 				JOptionPane.showMessageDialog(null, "Connection Not Found");

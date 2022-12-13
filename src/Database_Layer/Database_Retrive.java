@@ -14,13 +14,14 @@ public class Database_Retrive implements Database_RetriveF {
 	public Database_Retrive() {
 
 	}
-
+	Connection con;
 	static boolean t = false;
 	static DataBaseConnection obj=DataBaseConnection.getInstance();
+	
 	public List<String> Word() {
 		List<String> A_Str = new ArrayList<String>();
 		try {
-			Connection con;
+			
 			
                 con= obj.Connec();
 
@@ -35,7 +36,7 @@ public class Database_Retrive implements Database_RetriveF {
 
 				}
 				t = true;
-				con.close();
+				
 				JOptionPane.showMessageDialog(null, "FIle Retrived Successfully please wait....");
 			} else
 				JOptionPane.showMessageDialog(null, "Connection Not Found");

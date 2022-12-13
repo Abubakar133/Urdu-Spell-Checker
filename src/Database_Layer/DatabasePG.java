@@ -19,7 +19,8 @@ public class DatabasePG implements DatabasePGF {
 
 	static boolean t = false;
 	static List<String> A_Str2 = new ArrayList<String>();
-
+	Connection con;
+	DataBaseConnection obj1 = DataBaseConnection.getInstance();
 	public void PG_Data() {
 		ReadXML obj = new ReadXML();
 		List<String> A_Str = obj.RA();
@@ -28,8 +29,7 @@ public class DatabasePG implements DatabasePGF {
 		A_Str2 = A_Str;
 
 		try {
-			Connection con;
-			DataBaseConnection obj1 = DataBaseConnection.getInstance();
+			
 			con = obj1.Connec();
 
 			for (int j = 0; j < P_Str.size(); j++) {
@@ -44,7 +44,7 @@ public class DatabasePG implements DatabasePGF {
 				}
 			}
 			t = true;
-			con.close();
+			
 			JOptionPane.showMessageDialog(null, "File inserted Succesfully in Paragraph Table");
 		} catch (SQLException e) {
 			JOptionPane.showMessageDialog(null, "FIle Connection Error Found");

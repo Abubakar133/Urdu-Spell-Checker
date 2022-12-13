@@ -102,7 +102,7 @@ public class Generate_Mutant {
 		Alif.add("و");  CH.add("وھ");         //42
 		Alif.add("ی");  CH.add("یھ");         //43		
 		
-		for(int i=0;i<5;i++) {
+		for(int i=0;i<500;i++) {
 		String word=words.get(i);
 		int K=Key.get(i);
 		ArrayList<String> wor = new ArrayList<String>();
@@ -230,7 +230,7 @@ public class Generate_Mutant {
 			    {
 			        N.append(ch);
 			    }
-			    if(N.isEmpty()) {
+			    if(N.length()==0) {
 			    	
 			    }
 			    else {
@@ -239,7 +239,7 @@ public class Generate_Mutant {
 			    	if(!NewWord.contains(St.toString())) {
 			    	NewWord.add(St);
 			          NewKey.add(K);
-				     System.out.println(i+ " "+ St);
+				     System.out.println(i+1+ " "+ St);
 				
 			    	}
 			    	}

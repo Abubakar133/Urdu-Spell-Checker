@@ -13,13 +13,14 @@ import javax.swing.JOptionPane;
 import BussinessLogic_Layer.Make_Word;
 
 public class DatabaseWord implements DatabaseWordF {
+	Connection con;
 	public DatabaseWord() {
 
 	}
 
 	static boolean t = false;
 	static List<String> word_DB2 = new ArrayList<String>();
-
+	DataBaseConnection obj1 = DataBaseConnection.getInstance();
 	public void Word_Data() {
 		Make_Word obj = new Make_Word();
 		List<String> word_DB = word_DB = obj.Word_List();
@@ -27,8 +28,8 @@ public class DatabaseWord implements DatabaseWordF {
 		word_DB2 = word_DB;
 
 		try {
-			Connection con;
-			DataBaseConnection obj1 = DataBaseConnection.getInstance();
+			
+			
 			con = obj1.Connec();
 			for (int i = 0; i < word_DB.size(); i++) {
 				int Fre = (int) word_Fre.get(i);
@@ -66,9 +67,9 @@ public class DatabaseWord implements DatabaseWordF {
 	public void delete(int id) {
 
 		try {
-			Connection con;
-			DataBaseConnection obj = DataBaseConnection.getInstance();
-			con = obj.Connec();
+			
+			
+			con = obj1.Connec();
 
 			String query = "DELETE FROM word WHERE word_id = '" + id + "'";
 			PreparedStatement st1 = con.prepareStatement(query);
@@ -84,9 +85,9 @@ public class DatabaseWord implements DatabaseWordF {
 
 	public void update(String word, int id, int fre) {
 		try {
-			Connection con;
-			DataBaseConnection obj = DataBaseConnection.getInstance();
-			con = obj.Connec();
+			
+			
+			con = obj1.Connec();
 
 			String query = "UPDATE word SET word_id = " + id + ", words = '" + word + "', frequency = " + fre
 					+ " WHERE word_id like '" + id + "'";
@@ -105,9 +106,9 @@ public class DatabaseWord implements DatabaseWordF {
 	public void delete() {
 
 		try {
-			Connection con;
-			DataBaseConnection obj = DataBaseConnection.getInstance();
-			con = obj.Connec();
+			
+			
+			con = obj1.Connec();
 
 			PreparedStatement st1 = con.prepareStatement("TRUNCATE TABLE word");
 			st1.execute();

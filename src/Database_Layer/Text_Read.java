@@ -14,13 +14,14 @@ public class Text_Read {
 	
 	public static ArrayList<String> errorlist = new ArrayList<String>();
 	public static ArrayList<String> errorlist2 = new ArrayList<String>();
-	
+	Connection con;
+	DataBaseConnection obj = DataBaseConnection.getInstance();
 	
 public void connection_FUN(ArrayList words) {
 	errorlist.clear();
 	
 	try {
-    	Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/spell_checker","root","");
+    	con=obj.Connec();
     	
     	
     		for ( int i=0;i<words.size();i++ ) {
@@ -38,7 +39,7 @@ public void connection_FUN(ArrayList words) {
             	  
               }
     		}
-    	      con.close();
+    	      
     	   
     	   
     	}
@@ -52,7 +53,6 @@ public void connection(ArrayList words) {
 	errorlist2.clear();
 	
 	try {
-    	Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/spell_checker","root","");
     	
     	
     		for ( int i=0;i<words.size();i++ ) {
@@ -70,7 +70,7 @@ public void connection(ArrayList words) {
             	  
               }
     		}
-    	      con.close();
+    	      
     	  
     	}
     catch(SQLException e) {
@@ -83,7 +83,6 @@ public String connection3(String word) {
 	int id = 0;
 	String Nword = null;
 	try {
-    	Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/spell_checker","root","");
     	
     	
     		PreparedStatement ps = con.prepareStatement("SELECT * FROM mutants WHERE Word LIKE '" + word + "'");
@@ -112,7 +111,7 @@ public String connection3(String word) {
     	      
     	      
     	      
-    	      con.close();
+    	      
     	  
     	}
     catch(SQLException e) {

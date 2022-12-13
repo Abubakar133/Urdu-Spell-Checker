@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import BussinessLogic_Layer.CHeck_Words;
 import BussinessLogic_Layer.Make_Word;
 import BussinessLogic_Layer.ReadXML;
 import Database_Layer.DatabasePG;
