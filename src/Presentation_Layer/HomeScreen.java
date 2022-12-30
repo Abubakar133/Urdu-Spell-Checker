@@ -111,7 +111,7 @@ public class HomeScreen extends JFrame {
 		btnViewWordTable.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				viewandupdate.frame.setVisible(true);
+				viewandupdate.viewupdate.setVisible(true);
 				
 				//frame1.setVisible(false);
 				
