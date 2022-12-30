@@ -35,7 +35,7 @@ import BussinessLogic_Layer.Facade;
 import BussinessLogic_Layer.IFacade;
 import javax.swing.ImageIcon;
 
-public class viewandupdate extends JFrame {
+public class ViewAndUpdate extends JFrame {
 
 	private JPanel contentPane;
 	private JTable tableData;
@@ -53,7 +53,7 @@ public class viewandupdate extends JFrame {
 	boolean T = false;
 	HomeScreen homescreen;
 	private IFacade fasad =new Facade();
-	static viewandupdate viewupdate = new viewandupdate();
+	static ViewAndUpdate viewupdate = new ViewAndUpdate();
 
 	/**
 	 * Launch the application.
@@ -74,7 +74,7 @@ public class viewandupdate extends JFrame {
 					}
 				}
 				try {
-					viewupdate = new viewandupdate();
+					viewupdate = new ViewAndUpdate();
 					viewupdate.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -86,7 +86,7 @@ public class viewandupdate extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public viewandupdate() {
+	public ViewAndUpdate() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 838, 621);
 		contentPane = new JPanel();
@@ -283,7 +283,7 @@ public class viewandupdate extends JFrame {
 		contentPane.add(btnNewButton_1_1_1);
 
 		JButton btnNewButton_clear = new JButton("Clear");
-		btnNewButton_clear.setIcon(new ImageIcon(viewandupdate.class.getResource("/images/clear-icon.png")));
+		btnNewButton_clear.setIcon(new ImageIcon(ViewAndUpdate.class.getResource("/images/clear-icon.png")));
 		btnNewButton_clear.setBackground(SystemColor.inactiveCaption);
 		btnNewButton_clear.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -427,7 +427,7 @@ public class viewandupdate extends JFrame {
 		
 
 		JButton btnNewButton_2 = new JButton("Home");
-		btnNewButton_2.setIcon(new ImageIcon(viewandupdate.class.getResource("/images/home-icon.png")));
+		btnNewButton_2.setIcon(new ImageIcon(ViewAndUpdate.class.getResource("/images/home-icon.png")));
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 

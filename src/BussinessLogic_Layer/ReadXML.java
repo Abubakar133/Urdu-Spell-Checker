@@ -7,7 +7,7 @@ import org.w3c.dom.NodeList;
 import Database_Layer.DatabasePG;
 import Database_Layer.Facade;
 import Database_Layer.IFacade;
-import Presentation_Layer.words_Database;
+import Presentation_Layer.UploadWord;
 
 import java.util.ArrayList;
 import java.util.List;

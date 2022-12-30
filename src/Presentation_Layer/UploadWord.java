@@ -26,16 +26,16 @@ import BussinessLogic_Layer.Facade;
 import BussinessLogic_Layer.IFacade;
 import javax.swing.ImageIcon;
 
-public class words_Database extends JFrame {
+public class UploadWord extends JFrame {
 
-	File File3;
-	static String FolderPath;
-	private JPanel contentPane;
-	private static JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	static words_Database frame = new words_Database();
-	private static IFacade FS=new Facade();
+	File fileobj;
+	static String folderpath;
+	private JPanel contentpane;
+	private static JTextField textfield_address;
+	private JTextField textField_getword;
+	private JTextField textField_filename;
+	static UploadWord insertword = new UploadWord();
+	private static IFacade facad=new Facade();
 	JProgressBar progressBar;
 	/**
 	 * Launch the application.
@@ -56,8 +56,8 @@ public class words_Database extends JFrame {
 					}
 				}
 				try {
-					       frame = new words_Database();
-					frame.setVisible(true);
+					       insertword = new UploadWord();
+					insertword.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -70,28 +70,28 @@ public class words_Database extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public words_Database() {
+	public UploadWord() {
 		setBackground(new Color(192, 192, 192));
 		setType(Type.POPUP);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 848, 450);
-		contentPane = new JPanel();
-		contentPane.setForeground(new Color(0, 0, 0));
-		contentPane.setBackground(SystemColor.desktop);
-		contentPane.setBorder(new EmptyBorder(0, 0, 0, 0));
+		contentpane = new JPanel();
+		contentpane.setForeground(new Color(0, 0, 0));
+		contentpane.setBackground(SystemColor.desktop);
+		contentpane.setBorder(new EmptyBorder(0, 0, 0, 0));
 
-		setContentPane(contentPane);
-		contentPane.setLayout(null);
+		setContentPane(contentpane);
+		contentpane.setLayout(null);
 		
 		
-		textField = new JTextField();
-		textField.setBounds(451, 145, 155, 31);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		textfield_address = new JTextField();
+		textfield_address.setBounds(451, 145, 155, 31);
+		contentpane.add(textfield_address);
+		textfield_address.setColumns(10);
 		
 		
 		JButton btnNewButton = new JButton("Browser");
-		btnNewButton.setIcon(new ImageIcon(words_Database.class.getResource("/images/Search-icon (1).png")));
+		btnNewButton.setIcon(new ImageIcon(UploadWord.class.getResource("/images/Search-icon (1).png")));
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 10));
 		btnNewButton.setForeground(Color.DARK_GRAY);
 		btnNewButton.setBackground(new Color(224, 255, 255));
@@ -102,47 +102,47 @@ public class words_Database extends JFrame {
 				int response=Chooser.showOpenDialog(null);
 				if(response==JFileChooser.APPROVE_OPTION) {
 					File file =new File (Chooser.getSelectedFile().getAbsolutePath());
-					File3=file;
-					textField_2.setText(File3.getName());
+					fileobj=file;
+					textField_filename.setText(fileobj.getName());
 					progressBar.setValue(100);
 				}
 			}
 		});
 		btnNewButton.setBounds(636, 145, 143, 31);
-		contentPane.add(btnNewButton);
+		contentpane.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Upload PG");
-		btnNewButton_1.setIcon(new ImageIcon(words_Database.class.getResource("/images/Network-Upload-icon.png")));
+		btnNewButton_1.setIcon(new ImageIcon(UploadWord.class.getResource("/images/Network-Upload-icon.png")));
 		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 10));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String field=textField.getText();
+				String field=textfield_address.getText();
 				progressBar.setValue(1);
 				System.out.println(field);
 				try {
 					
-				if(field.isEmpty()&&File3==null) {
+				if(field.isEmpty()&&fileobj==null) {
 					JOptionPane.showMessageDialog(null,"Please Select Something");
 					progressBar.setValue(1);
 				}
 				
 				else if((field.isEmpty())) {
-                	textField.setText("");
+                	textfield_address.setText("");
                 	//ReadXML f=new ReadXML();
                 	
-					FS.XML_Single(File3);
-					textField.setText("");	
+					facad.XML_Single(fileobj);
+					textfield_address.setText("");	
 					progressBar.setValue(100);
                 	}
 
                 else  {
-                	String field1=textField.getText();
+                	String field1=textfield_address.getText();
                 	if((field1.isEmpty())){
                 		JOptionPane.showMessageDialog(null,"Please Select Something");
                 		progressBar.setValue(1);
                 	}
                 	else {
-                	File3=null;
+                	fileobj=null;
 					getFolder();
 					progressBar.setValue(100);
                 	}
@@ -155,43 +155,43 @@ public class words_Database extends JFrame {
 		});
 		btnNewButton_1.setBackground(new Color(224, 255, 255));
 		btnNewButton_1.setBounds(561, 238, 149, 41);
-		contentPane.add(btnNewButton_1);
+		contentpane.add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("Generate Word");
-		btnNewButton_2.setIcon(new ImageIcon(words_Database.class.getResource("/images/Generate-tables-icon.png")));
+		btnNewButton_2.setIcon(new ImageIcon(UploadWord.class.getResource("/images/Generate-tables-icon.png")));
 		btnNewButton_2.setFont(new Font("Tahoma", Font.BOLD, 10));
 		btnNewButton_2.setBackground(new Color(224, 255, 255));
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				progressBar.setValue(1);
 				
-				FS.controller();
+				facad.controller();
 				progressBar.setValue(100);
 			}
 		});
 		btnNewButton_2.setBounds(55, 238, 149, 41);
-		contentPane.add(btnNewButton_2);
-		textField_1 = new JTextField();
-		textField_1.setBounds(135, 145, 155, 31);
-		contentPane.add(textField_1);
-		textField_1.setColumns(10);
+		contentpane.add(btnNewButton_2);
+		textField_getword = new JTextField();
+		textField_getword.setBounds(135, 145, 155, 31);
+		contentpane.add(textField_getword);
+		textField_getword.setColumns(10);
 		JRadioButton rdbtnNewRadioButton = new JRadioButton("Select to Insert Word");
 		rdbtnNewRadioButton.setForeground(new Color(255, 255, 255));
 		rdbtnNewRadioButton.setBackground(SystemColor.desktop);
 		rdbtnNewRadioButton.setBounds(147, 189, 157, 21);
-		contentPane.add(rdbtnNewRadioButton);
+		contentpane.add(rdbtnNewRadioButton);
 		
 		JButton btnNewButton_3 = new JButton("Upload Word");
-		btnNewButton_3.setIcon(new ImageIcon(words_Database.class.getResource("/images/Network-Upload-icon.png")));
+		btnNewButton_3.setIcon(new ImageIcon(UploadWord.class.getResource("/images/Network-Upload-icon.png")));
 		btnNewButton_3.setFont(new Font("Tahoma", Font.BOLD, 10));
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				progressBar.setValue(1);
 				if(rdbtnNewRadioButton.isSelected()) {
-				String Word=textField_1 .getText();
+				String Word=textField_getword .getText();
 
                    
-				FS.Word_Single(Word);
+				facad.Word_Single(Word);
 				progressBar.setValue(100);
 				}
 				else {
@@ -201,39 +201,39 @@ public class words_Database extends JFrame {
 		});
 		btnNewButton_3.setBackground(new Color(224, 255, 255));
 		btnNewButton_3.setBounds(216, 238, 149, 41);
-		contentPane.add(btnNewButton_3);
+		contentpane.add(btnNewButton_3);
 		
-		textField_2 = new JTextField();
-		textField_2.setEditable(false);
-		textField_2.setBounds(675, 186, 104, 19);
-		contentPane.add(textField_2);
-		textField_2.setColumns(10);
+		textField_filename = new JTextField();
+		textField_filename.setEditable(false);
+		textField_filename.setBounds(675, 186, 104, 24);
+		contentpane.add(textField_filename);
+		textField_filename.setColumns(10);
 		
 		JLabel lblNewLabel = new JLabel("Insert Word");
 		lblNewLabel.setForeground(new Color(255, 255, 255));
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 10));
 		lblNewLabel.setBounds(182, 121, 122, 13);
-		contentPane.add(lblNewLabel);
+		contentpane.add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("Insert Address");
 		lblNewLabel_1.setForeground(new Color(255, 255, 255));
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 10));
 		lblNewLabel_1.setBounds(489, 122, 104, 13);
-		contentPane.add(lblNewLabel_1);
+		contentpane.add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("Task Flow Spell Checker");
 		lblNewLabel_2.setForeground(new Color(255, 255, 255));
 		lblNewLabel_2.setFont(new Font("Tempus Sans ITC", Font.BOLD | Font.ITALIC, 36));
 		lblNewLabel_2.setBounds(238, 29, 407, 52);
-		contentPane.add(lblNewLabel_2);
+		contentpane.add(lblNewLabel_2);
 		
 		JLabel lblNewLabel_3 = new JLabel("File");
 		lblNewLabel_3.setForeground(new Color(255, 255, 255));
 		lblNewLabel_3.setBounds(646, 188, 32, 13);
-		contentPane.add(lblNewLabel_3);
+		contentpane.add(lblNewLabel_3);
 		
 		JButton btnNewButton_5 = new JButton("Clear words");
-		btnNewButton_5.setIcon(new ImageIcon(words_Database.class.getResource("/images/clear-icon.png")));
+		btnNewButton_5.setIcon(new ImageIcon(UploadWord.class.getResource("/images/clear-icon.png")));
 		btnNewButton_5.setBackground(new Color(224, 255, 255));
 		btnNewButton_5.setFont(new Font("Tahoma", Font.BOLD, 10));
 		btnNewButton_5.addActionListener(new ActionListener() {
@@ -241,30 +241,30 @@ public class words_Database extends JFrame {
 				
 				
 				
-				FS.delete(true);
+				facad.delete(true);
 				progressBar.setValue(100);
 				
 			}
 		});
 		btnNewButton_5.setBounds(71, 306, 279, 41);
-		contentPane.add(btnNewButton_5);
+		contentpane.add(btnNewButton_5);
 		
 		 progressBar = new JProgressBar();
 		progressBar.setFont(new Font("Tahoma", Font.BOLD, 10));
 		progressBar.setBounds(289, 361, 264, 21);
-		contentPane.add(progressBar);
+		contentpane.add(progressBar);
 		progressBar.setValue(0);
 		progressBar.setOpaque(true);
 		progressBar.setForeground(Color.blue);
 		progressBar.setStringPainted(true);
 		
 		JButton btnNewButton_4 = new JButton("Home");
-		btnNewButton_4.setIcon(new ImageIcon(words_Database.class.getResource("/images/home-icon.png")));
+		btnNewButton_4.setIcon(new ImageIcon(UploadWord.class.getResource("/images/home-icon.png")));
 		btnNewButton_4.setBackground(new Color(230, 230, 250));
 		btnNewButton_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				HomeScreen.Homescreen.setVisible(true);
-				frame.hide();
+				insertword.hide();
 				
 		
 	            
@@ -272,23 +272,23 @@ public class words_Database extends JFrame {
 		});
 		btnNewButton_4.setFont(new Font("Tahoma", Font.BOLD, 14));
 		btnNewButton_4.setBounds(675, 39, 117, 31);
-		contentPane.add(btnNewButton_4);
+		contentpane.add(btnNewButton_4);
 		
 		
 
 	}
 	
 	public static void getFolder() {
-		String path=textField.getText();
+		String path=textfield_address.getText();
 		System.out.println(path);
 		File Folder= new File(path);
 		File[] file = Folder.listFiles();
 	
 				
 			
-      			FS.XML_Folder(file);
+      			facad.XML_Folder(file);
 				
-		textField.setText("");
+		textfield_address.setText("");
 		
 		
 	}

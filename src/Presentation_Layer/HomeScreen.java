@@ -73,7 +73,7 @@ public class HomeScreen extends JFrame {
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				words_Database.frame.setVisible(true);
+				UploadWord.insertword.setVisible(true);
 				
 				Homescreen.dispose();
 				
@@ -111,9 +111,9 @@ public class HomeScreen extends JFrame {
 		btnViewWordTable.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				viewandupdate.viewupdate.setVisible(true);
+				ViewAndUpdate.viewupdate.setVisible(true);
 				
-				//frame1.setVisible(false);
+				
 				
 				Homescreen.dispose();
 				
