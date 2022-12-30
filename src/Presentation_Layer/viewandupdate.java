@@ -431,7 +431,7 @@ public class viewandupdate extends JFrame {
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				HomeScreen.frame1.setVisible(true);
+				HomeScreen.Homescreen.setVisible(true);
 				frame.dispose();
 
 			}

@@ -223,7 +223,7 @@ public class Hilight extends JFrame {
 		      btnNewButton_4.setIcon(new ImageIcon(Hilight.class.getResource("/images/home-icon.png")));
 		      btnNewButton_4.addActionListener(new ActionListener() {
 		      	public void actionPerformed(ActionEvent e) {
-                    HomeScreen.frame1.setVisible(true);
+                    HomeScreen.Homescreen.setVisible(true);
 					
 		      		frame.dispose();
 		      		

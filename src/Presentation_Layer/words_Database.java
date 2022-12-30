@@ -263,7 +263,7 @@ public class words_Database extends JFrame {
 		btnNewButton_4.setBackground(new Color(230, 230, 250));
 		btnNewButton_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				HomeScreen.frame1.setVisible(true);
+				HomeScreen.Homescreen.setVisible(true);
 				frame.hide();
 				
 		

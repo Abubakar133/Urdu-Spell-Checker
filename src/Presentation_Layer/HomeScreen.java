@@ -19,7 +19,7 @@ import javax.swing.ImageIcon;
 public class HomeScreen extends JFrame {
 
 	private JPanel contentPane;
-	static HomeScreen frame1 = new HomeScreen();
+	static HomeScreen Homescreen = new HomeScreen();
 	
 	/**
 	 * Launch the application.
@@ -40,8 +40,8 @@ public class HomeScreen extends JFrame {
 					}
 				}
 				try {
-					 frame1 = new HomeScreen();
-					frame1.setVisible(true);
+					 Homescreen = new HomeScreen();
+					Homescreen.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -75,7 +75,7 @@ public class HomeScreen extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				words_Database.frame.setVisible(true);
 				
-				frame1.dispose();
+				Homescreen.dispose();
 				
 				//frame1.setVisible(false);
 			}
@@ -88,7 +88,7 @@ public class HomeScreen extends JFrame {
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Mutants.frame.setVisible(true);
-				frame1.dispose();
+				Homescreen.dispose();
 				
 			}
 		});
@@ -100,7 +100,7 @@ public class HomeScreen extends JFrame {
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Hilight.frame.setVisible(true);
-				frame1.dispose();
+				Homescreen.dispose();
 				
 			}
 		});
@@ -115,7 +115,7 @@ public class HomeScreen extends JFrame {
 				
 				//frame1.setVisible(false);
 				
-				frame1.dispose();
+				Homescreen.dispose();
 				
 			}
 		});

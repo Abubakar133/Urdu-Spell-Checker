@@ -120,7 +120,7 @@ public class Mutants extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				
 				//HomeScreen frame1 = new HomeScreen();
-				HomeScreen.frame1.setVisible(true);
+				HomeScreen.Homescreen.setVisible(true);
 				
 	      		
 				Mutants.frame.dispose();
