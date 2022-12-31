@@ -31,8 +31,8 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 
-import BussinessLogic_Layer.Facade;
-import BussinessLogic_Layer.IFacade;
+import BussinessLogic_Layer.FacadeBussiness;
+import BussinessLogic_Layer.IFacadeBussiness;
 import javax.swing.ImageIcon;
 
 public class ViewAndUpdate extends JFrame {
@@ -52,7 +52,7 @@ public class ViewAndUpdate extends JFrame {
 	List words = new ArrayList();
 	boolean T = false;
 	HomeScreen homescreen;
-	private IFacade fasad =new Facade();
+	private IFacadeBussiness fasad =new FacadeBussiness();
 	static ViewAndUpdate viewupdate = new ViewAndUpdate();
 
 	/**

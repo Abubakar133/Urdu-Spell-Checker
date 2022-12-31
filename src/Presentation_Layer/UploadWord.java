@@ -22,8 +22,8 @@ import javax.swing.UIManager.LookAndFeelInfo;
 import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.border.EmptyBorder;
 
-import BussinessLogic_Layer.Facade;
-import BussinessLogic_Layer.IFacade;
+import BussinessLogic_Layer.FacadeBussiness;
+import BussinessLogic_Layer.IFacadeBussiness;
 import javax.swing.ImageIcon;
 
 public class UploadWord extends JFrame {
@@ -35,7 +35,7 @@ public class UploadWord extends JFrame {
 	private JTextField textField_getword;
 	private JTextField textField_filename;
 	static UploadWord insertword = new UploadWord();
-	private static IFacade facad=new Facade();
+	private static IFacadeBussiness facad=new FacadeBussiness();
 	JProgressBar progressBar;
 	/**
 	 * Launch the application.
@@ -104,6 +104,7 @@ public class UploadWord extends JFrame {
 					File file =new File (Chooser.getSelectedFile().getAbsolutePath());
 					fileobj=file;
 					textField_filename.setText(fileobj.getName());
+					progressBar.setForeground(Color.green);
 					progressBar.setValue(100);
 				}
 			}
@@ -154,7 +155,7 @@ public class UploadWord extends JFrame {
 			}
 		});
 		btnNewButton_1.setBackground(new Color(224, 255, 255));
-		btnNewButton_1.setBounds(561, 238, 149, 41);
+		btnNewButton_1.setBounds(560, 238, 149, 41);
 		contentpane.add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("Generate Word");
@@ -205,7 +206,7 @@ public class UploadWord extends JFrame {
 		
 		textField_filename = new JTextField();
 		textField_filename.setEditable(false);
-		textField_filename.setBounds(675, 186, 104, 24);
+		textField_filename.setBounds(571, 188, 104, 24);
 		contentpane.add(textField_filename);
 		textField_filename.setColumns(10);
 		
@@ -229,7 +230,7 @@ public class UploadWord extends JFrame {
 		
 		JLabel lblNewLabel_3 = new JLabel("File");
 		lblNewLabel_3.setForeground(new Color(255, 255, 255));
-		lblNewLabel_3.setBounds(646, 188, 32, 13);
+		lblNewLabel_3.setBounds(541, 188, 32, 22);
 		contentpane.add(lblNewLabel_3);
 		
 		JButton btnNewButton_5 = new JButton("Clear words");

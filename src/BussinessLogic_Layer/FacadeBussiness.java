@@ -3,17 +3,17 @@ package BussinessLogic_Layer;
 import java.io.File;
 import java.util.List;
 
-public class Facade implements IFacade {
+public class FacadeBussiness implements IFacadeBussiness {
 
-	view_update view;
-	ReadXml read;
-	Make_Word word;
+	ViewUpdateWords view;
+	ReadXmlFiles read;
+	MakeWords word;
 	
-	public Facade(){
+	public FacadeBussiness(){
 		
-		view =new view_update();
-		read=new ReadXml();
-		word=new Make_Word();
+		view =new ViewUpdateWords();
+		read=new ReadXmlFiles();
+		word=new MakeWords();
 		
 	}
 	

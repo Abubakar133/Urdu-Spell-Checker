@@ -10,20 +10,20 @@ import java.util.List;
 import java.util.Map;
 
 import Database_Layer.DatabaseWord;
-import Database_Layer.Database_Retrive;
-import Database_Layer.Facade;
-import Database_Layer.IFacade;
+import Database_Layer.DatabaseRetriveParagraph;
+import Database_Layer.FacadeDatabase;
+import Database_Layer.IFacadeDatabase;
 
-public class Make_Word implements Make_WordF {
+public class MakeWords implements MakeWordsF {
 
 	
 	
-	public Make_Word(){
+	public MakeWords(){
 		
 		
 	}
 	
-	private Facade facade=new IFacade();
+	private FacadeDatabase facade=new IFacadeDatabase();
 	static List<String> words = new ArrayList<String>(); 
     static List<Integer> wordfrequency = new ArrayList<Integer>();
     
@@ -34,7 +34,7 @@ public class Make_Word implements Make_WordF {
     public void controller() {
     	
     	
-    	List<String> c1 = facade.Word();
+    	List<String> c1 = facade.getParagraphs();
     	List<String> c2 = wordCreator(c1);
     	hashMapFun(c2);
     	facade.Word_Data();

@@ -3,7 +3,7 @@ package BussinessLogic_Layer;
 import java.io.File;
 import java.util.List;
 
-public interface ReadXMLF {
+public interface ReadXmlFilesF {
 	public List<String> returnParagraph();
 	public void singleXml(File S_F);
 	public List<String> returnTitle();

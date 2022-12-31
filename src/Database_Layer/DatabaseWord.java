@@ -1,68 +1,66 @@
 package Database_Layer;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.JOptionPane;
 
-import BussinessLogic_Layer.Make_Word;
+import BussinessLogic_Layer.MakeWords;
 
 public class DatabaseWord implements DatabaseWordF {
-	Connection con;
+	Connection connection;
 	public DatabaseWord() {
 
 	}
 
-	static boolean t = false;
-	static List<String> word_DB2 = new ArrayList<String>();
-	DataBaseConnection obj1 = DataBaseConnection.getInstance();
+	static boolean test = false;
+	static List<String> wordtest = new ArrayList<String>();
+	DataBaseConnection dbconnection = DataBaseConnection.getInstance();
 	public void Word_Data() {
-		Make_Word obj = new Make_Word();
-		List<String> word_DB = word_DB = obj.returnWordList();
-		List<Integer> word_Fre = word_Fre = obj.returnFrequency();
-		word_DB2 = word_DB;
+		MakeWords makewordobj = new MakeWords();
+		List<String> wordslist = wordslist = makewordobj.returnWordList();
+		List<Integer> wordsfre = wordsfre = makewordobj.returnFrequency();
+		wordtest = wordslist;
 
 		try {
 			
 			
-			con = obj1.Connec();
-			for (int i = 0; i < word_DB.size(); i++) {
-				String St=word_DB.get(i);
-				int Fre = (int) word_Fre.get(i);
+			connection = dbconnection.Connec();
+			for (int i = 0; i < wordslist.size(); i++) {
+				String wrongword=wordslist.get(i);
+				int frequency = (int) wordsfre.get(i);
 				
-				if(St.length()>10&&Fre==1) {
+				if(wrongword.length()>10&&frequency==1) {
 				
 				}
 				else {
-				PreparedStatement st = con
-						.prepareStatement("insert into word values(" + null + ",'" + word_DB.get(i) + "'," + Fre + ")");
-				st.execute();
+				PreparedStatement preparedst = connection
+						.prepareStatement("insert into word values(" + null + ",'" + wordslist.get(i) + "'," + frequency + ")");
+				preparedst.execute();
 				}
 
 			}
 			JOptionPane.showMessageDialog(null, "Word Sent Successfully in Database");
-			t = true;
-			// con.close();
+			test = true;
+			
 		} catch (SQLException e) {
 			JOptionPane.showMessageDialog(null, "Connection Not Found");
 		}
 
 	}
 
-	public List<String> Test() {
+	public List<String> test() {
 
-		return word_DB2;
+		return wordtest;
 	}
 
-	public boolean CheckConnection() {
+	public boolean checkConnectionWord() {
 
 		Word_Data();
-		if (t == true) {
+		if (test == true) {
 			return true;
 		} else {
 			return false;
@@ -75,13 +73,13 @@ public class DatabaseWord implements DatabaseWordF {
 		try {
 			
 			
-			con = obj1.Connec();
+			connection = dbconnection.Connec();
 
 			String query = "DELETE FROM word WHERE word_id = '" + id + "'";
-			PreparedStatement st1 = con.prepareStatement(query);
-			st1.execute();
+			PreparedStatement preparedst = connection.prepareStatement(query);
+			preparedst.execute();
 
-			JOptionPane.showMessageDialog(null, "Word Delete Successfully in Database");
+			//JOptionPane.showMessageDialog(null, "Word Delete Successfully in Database");
 
 			// con.close();
 		} catch (SQLException e) {
@@ -93,17 +91,17 @@ public class DatabaseWord implements DatabaseWordF {
 		try {
 			
 			
-			con = obj1.Connec();
+			connection = dbconnection.Connec();
 
 			String query = "UPDATE word SET word_id = " + id + ", words = '" + word + "', frequency = " + fre
 					+ " WHERE word_id like '" + id + "'";
 
-			PreparedStatement st1 = con.prepareStatement(query);
-			st1.execute();
+			PreparedStatement preparedst = connection.prepareStatement(query);
+			preparedst.execute();
 
-			JOptionPane.showMessageDialog(null, "Word update Successfully in Database");
+			//JOptionPane.showMessageDialog(null, "Word update Successfully in Database");
 
-			// con.close();
+			
 		} catch (SQLException e) {
 			JOptionPane.showMessageDialog(null, "Connection Not Found");
 		}
@@ -114,14 +112,14 @@ public class DatabaseWord implements DatabaseWordF {
 		try {
 			
 			
-			con = obj1.Connec();
+			connection = dbconnection.Connec();
 
-			PreparedStatement st1 = con.prepareStatement("TRUNCATE TABLE word");
-			st1.execute();
+			PreparedStatement preparedst = connection.prepareStatement("TRUNCATE TABLE word");
+			preparedst.execute();
 
-			JOptionPane.showMessageDialog(null, "Word Delete Successfully in Database");
+			//JOptionPane.showMessageDialog(null, "Word Delete Successfully in Database");
 
-			// con.close();
+			
 		} catch (SQLException e) {
 			JOptionPane.showMessageDialog(null, "Connection Not Found");
 		}

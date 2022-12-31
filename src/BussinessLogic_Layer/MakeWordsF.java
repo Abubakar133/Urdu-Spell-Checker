@@ -2,7 +2,7 @@ package BussinessLogic_Layer;
 
 import java.util.List;
 
-public interface Make_WordF {
+public interface MakeWordsF {
 	public void controller();
 	public void singleWord(String Word);
 	public List<String> wordCreator(List<String> obj );

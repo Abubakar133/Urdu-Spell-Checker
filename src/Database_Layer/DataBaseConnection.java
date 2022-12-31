@@ -22,8 +22,8 @@ class DataBaseConnection
     
     public Connection Connec() throws SQLException {
     	
-    	Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/spell_checker", Username, Password);
-		return con;
+    	Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/spell_checker2", Username, Password);
+		return connection;
     	
     }
     

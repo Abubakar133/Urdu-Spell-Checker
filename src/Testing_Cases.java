@@ -5,15 +5,15 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import BussinessLogic_Layer.CHeck_Words;
 import BussinessLogic_Layer.Generate_Mutant;
-import BussinessLogic_Layer.Make_Word;
-import BussinessLogic_Layer.ReadXml;
-import Database_Layer.DatabasePG;
+import BussinessLogic_Layer.ReadXmlFiles;
+import Database_Layer.DatabaseParagraph;
 import Database_Layer.DatabaseWord;
-import Database_Layer.Database_Retrive;
-import Database_Layer.Facade;
-import Database_Layer.IFacade;
+import Database_Layer.DatabaseRetriveParagraph;
+import Database_Layer.FacadeDatabase;
+import Database_Layer.IFacadeDatabase;
+import BussinessLogic_Layer.IFacadeBussiness;
+import BussinessLogic_Layer.FacadeBussiness;
 
 
 class Testing_Cases {
@@ -25,11 +25,11 @@ class Testing_Cases {
 	@DisplayName("Check Word Data")
 	public  void assertEqua()
 	{
-		Make_Word t=new Make_Word() ;
 		
+		IFacadeBussiness Fs=new FacadeBussiness();
 		List<String> w_DB = new ArrayList<String>();
-		t.singleWord("Abubakar");
-		w_DB=t.returnWordList();
+		Fs.singleWord("Abubakar");
+		w_DB=Fs.returnWordList();
 		
 		
 		String name=w_DB.get(0);
@@ -42,12 +42,14 @@ class Testing_Cases {
 	@DisplayName("Check array List")
 	public  void assertequal1()
 	{
-		DatabaseWord t=new DatabaseWord() ;
-		Make_Word t2=new Make_Word() ;
+		IFacadeBussiness Fs=new FacadeBussiness();
+		
+		FacadeDatabase t=new IFacadeDatabase();
+		
 		
 		List<String> w_DB = new ArrayList<String>();
-		t2.singleWord("Abubakar");
-		w_DB=t.Test();
+		Fs.singleWord("Abubakar");
+		w_DB=t.test();
 		
 		String name=w_DB.get(0);
 		
@@ -59,10 +61,11 @@ class Testing_Cases {
 	@DisplayName("Db con 1")
 	public  void DB1()
 	{
-		Database_Retrive t=new Database_Retrive() ;
+		FacadeDatabase Fs=new IFacadeDatabase();
+		DatabaseRetriveParagraph t=new DatabaseRetriveParagraph() ;
 		
 		
-		Assertions.assertTrue(t.CheckConnection());
+		Assertions.assertTrue(Fs.checkConnectionRetrive());
 		
 	}
 	
@@ -71,9 +74,9 @@ class Testing_Cases {
 	@Test
 	@DisplayName("Db con 2")
 	public  void DB2()
-	{ Facade Fs=new IFacade();
-		DatabasePG t=new DatabasePG() ;
-		Assertions.assertTrue(Fs.CheckConnection());
+	{ FacadeDatabase Fs=new IFacadeDatabase();
+		DatabaseParagraph t=new DatabaseParagraph() ;
+		Assertions.assertTrue(Fs.checkConnectionParagraph());
 		
 	}
 	
@@ -83,7 +86,7 @@ class Testing_Cases {
 	{
 		DatabaseWord t=new DatabaseWord() ;
 		
-		Assertions.assertTrue(t.CheckConnection());
+		Assertions.assertTrue(t.checkConnectionWord());
 		
 	}
 	
@@ -91,11 +94,11 @@ class Testing_Cases {
 	@DisplayName("Check Db Data")
 	public  void assertequal3()
 	{
-		ReadXml t=new ReadXml() ;
-		DatabasePG t2=new DatabasePG() ;
+		ReadXmlFiles t=new ReadXmlFiles() ;
+		DatabaseParagraph t2=new DatabaseParagraph() ;
 		List<String> w_DB = new ArrayList<String>();
 		t.xmltitlelist.add("University");
-		w_DB=t2.Test();
+		w_DB=t2.test();
 		
 		String name=w_DB.get(0);
 		

@@ -4,9 +4,9 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
-import Database_Layer.DatabasePG;
-import Database_Layer.Facade;
-import Database_Layer.IFacade;
+import Database_Layer.DatabaseParagraph;
+import Database_Layer.FacadeDatabase;
+import Database_Layer.IFacadeDatabase;
 import Presentation_Layer.UploadWord;
 
 import java.util.ArrayList;
@@ -15,8 +15,8 @@ import javax.swing.JOptionPane;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
-public class ReadXml implements ReadXMLF {
-	public ReadXml(){
+public class ReadXmlFiles implements ReadXmlFilesF {
+	public ReadXmlFiles(){
 		
 		
 		
@@ -26,7 +26,7 @@ public class ReadXml implements ReadXMLF {
 	}
 	
 	
-	static Facade facade;
+	static FacadeDatabase facade;
 	public List<String> returnParagraph() {
 	     return xmlparagraphlist;
 	 
@@ -36,7 +36,7 @@ public class ReadXml implements ReadXMLF {
     
      
 public void singleXml(File xmlfile) {
-	facade = new IFacade();
+	facade = new IFacadeDatabase();
 		try {
 			  
 			DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();  
@@ -66,7 +66,7 @@ public void singleXml(File xmlfile) {
 			
 			} 
 			
-			facade.PG_Data();
+			facade.sentParagraphData();
 				}
 			catch(Exception e) {
 				JOptionPane.showMessageDialog(null,"Sorry FIle is Currupted");
@@ -84,7 +84,7 @@ public List<String> returnTitle() {
 	public void folderXml(File[] files_Folder)   
 	{  
 		
-		facade = new IFacade();
+		facade = new IFacadeDatabase();
 		System.out.println(files_Folder.length);
 	    
 		for(File S_F:files_Folder) {
@@ -127,7 +127,7 @@ public List<String> returnTitle() {
 		}
 		
 		}
-		facade.PG_Data();
+		facade.sentParagraphData();
 	
 }
 	public static List<String> xmltitlelist=new ArrayList<String>();
