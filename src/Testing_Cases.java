@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import BussinessLogic_Layer.CHeck_Words;
 import BussinessLogic_Layer.Generate_Mutant;
 import BussinessLogic_Layer.Make_Word;
-import BussinessLogic_Layer.ReadXML;
+import BussinessLogic_Layer.ReadXml;
 import Database_Layer.DatabasePG;
 import Database_Layer.DatabaseWord;
 import Database_Layer.Database_Retrive;
@@ -28,8 +28,8 @@ class Testing_Cases {
 		Make_Word t=new Make_Word() ;
 		
 		List<String> w_DB = new ArrayList<String>();
-		t.Word_Single("Abubakar");
-		w_DB=t.Word_List();
+		t.singleWord("Abubakar");
+		w_DB=t.returnWordList();
 		
 		
 		String name=w_DB.get(0);
@@ -46,7 +46,7 @@ class Testing_Cases {
 		Make_Word t2=new Make_Word() ;
 		
 		List<String> w_DB = new ArrayList<String>();
-		t2.Word_Single("Abubakar");
+		t2.singleWord("Abubakar");
 		w_DB=t.Test();
 		
 		String name=w_DB.get(0);
@@ -91,10 +91,10 @@ class Testing_Cases {
 	@DisplayName("Check Db Data")
 	public  void assertequal3()
 	{
-		ReadXML t=new ReadXML() ;
+		ReadXml t=new ReadXml() ;
 		DatabasePG t2=new DatabasePG() ;
 		List<String> w_DB = new ArrayList<String>();
-		t.XMLtitle.add("University");
+		t.xmltitlelist.add("University");
 		w_DB=t2.Test();
 		
 		String name=w_DB.get(0);

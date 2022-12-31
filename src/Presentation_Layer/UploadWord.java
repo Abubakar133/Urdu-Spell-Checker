@@ -130,7 +130,7 @@ public class UploadWord extends JFrame {
                 	textfield_address.setText("");
                 	//ReadXML f=new ReadXML();
                 	
-					facad.XML_Single(fileobj);
+					facad.singleXml(fileobj);
 					textfield_address.setText("");	
 					progressBar.setValue(100);
                 	}
@@ -191,7 +191,7 @@ public class UploadWord extends JFrame {
 				String Word=textField_getword .getText();
 
                    
-				facad.Word_Single(Word);
+				facad.singleWord(Word);
 				progressBar.setValue(100);
 				}
 				else {
@@ -241,7 +241,7 @@ public class UploadWord extends JFrame {
 				
 				
 				
-				facad.delete(true);
+				facad.deleteWord(true);
 				progressBar.setValue(100);
 				
 			}
@@ -286,7 +286,7 @@ public class UploadWord extends JFrame {
 	
 				
 			
-      			facad.XML_Folder(file);
+      			facad.folderXml(file);
 				
 		textfield_address.setText("");
 		

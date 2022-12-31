@@ -9,7 +9,7 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
-import BussinessLogic_Layer.ReadXML;
+import BussinessLogic_Layer.ReadXml;
 
 public class DatabasePG implements DatabasePGF {
 
@@ -22,10 +22,10 @@ public class DatabasePG implements DatabasePGF {
 	Connection con;
 	DataBaseConnection obj1 = DataBaseConnection.getInstance();
 	public void PG_Data() {
-		ReadXML obj = new ReadXML();
-		List<String> A_Str = obj.RA();
-		List<String> T_Str = obj.RT();
-		List<String> P_Str = obj.RP();
+		ReadXml obj = new ReadXml();
+		List<String> A_Str = obj.returnAuthor();
+		List<String> T_Str = obj.returnTitle();
+		List<String> P_Str = obj.returnParagraph();
 		A_Str2 = A_Str;
 
 		try {

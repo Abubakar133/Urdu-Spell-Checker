@@ -227,7 +227,7 @@ public class ViewAndUpdate extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 
 				if(insertbtn.isSelected()) {
-				fasad.Word_Single(textFieldword.getText());
+				fasad.singleWord(textFieldword.getText());
 				}
 				else {
 					
@@ -248,7 +248,7 @@ public class ViewAndUpdate extends JFrame {
 				if(updatebtn.isSelected()) {
 				int id = Integer.parseInt(textFieldID.getText());
 				int fre = Integer.parseInt(textField_freq.getText());
-				fasad.update(textFieldword.getText(), id, fre);
+				fasad.updateWord(textFieldword.getText(), id, fre);
 				}
 				else {
 					

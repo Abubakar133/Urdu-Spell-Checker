@@ -15,8 +15,8 @@ import javax.swing.JOptionPane;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
-public class ReadXML implements ReadXMLF {
-	public ReadXML(){
+public class ReadXml implements ReadXMLF {
+	public ReadXml(){
 		
 		
 		
@@ -25,109 +25,100 @@ public class ReadXML implements ReadXMLF {
 		
 	}
 	
-	//static DatabasePG obj=new DatabasePG();
-	 
-	static Facade Fs;
-	public List<String> RP() {
-	     return XMLpg;
+	
+	static Facade facade;
+	public List<String> returnParagraph() {
+	     return xmlparagraphlist;
 	 
    }
 	
     
     
      
-public void XML_Single(File S_F) {
-	Fs = new IFacade();
+public void singleXml(File xmlfile) {
+	facade = new IFacade();
 		try {
 			  
-			DocumentBuilderFactory DF = DocumentBuilderFactory.newInstance();  
+			DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();  
 			  
-			DocumentBuilder X = DF.newDocumentBuilder();  
-			Document Fil = X.parse(S_F);  
-			Fil.getDocumentElement().normalize();  
-			NodeList List = Fil.getElementsByTagName("document");  
-				Node St = List.item(0);  
+			DocumentBuilder builder = dbf.newDocumentBuilder();  
+			Document xmfile = builder.parse(xmlfile);  
+			xmfile.getDocumentElement().normalize();  
+			NodeList List = xmfile.getElementsByTagName("document");  
+				Node node = List.item(0);  
 			
-			if (St.getNodeType() == Node.ELEMENT_NODE)   
+			if (node.getNodeType() == Node.ELEMENT_NODE)   
 			{  
-			Element data = (Element) St;  
-			String T_Str;
-			String A_Str;
-			String P_Str;
+			Element data = (Element) node;  
+			String title;
+			String authors;
+			String paragraph;
 			
-			T_Str=data.getElementsByTagName("title").item(0).getTextContent();
-			A_Str=data.getElementsByTagName("author").item(0).getTextContent();
-			P_Str=data.getElementsByTagName("section").item(0).getTextContent(); 
-			A_Str = A_Str.replaceAll("\\s+"," ").trim();
-			T_Str = T_Str.replaceAll("\\s+"," ").trim();
-			P_Str = P_Str.replaceAll("\\s+"," ").trim();
-			XMLauthor.add(A_Str);
-			XMLtitle.add(T_Str);
-			XMLpg.add(P_Str);
+			title=data.getElementsByTagName("title").item(0).getTextContent();
+			authors=data.getElementsByTagName("author").item(0).getTextContent();
+			paragraph=data.getElementsByTagName("section").item(0).getTextContent(); 
+			authors = authors.replaceAll("\\s+"," ").trim();
+			title = title.replaceAll("\\s+"," ").trim();
+			paragraph = paragraph.replaceAll("\\s+"," ").trim();
+			xmlauthorlist.add(authors);
+			xmltitlelist.add(title);
+			xmlparagraphlist.add(paragraph);
 			
 			} 
 			
-			Fs.PG_Data();
+			facade.PG_Data();
 				}
 			catch(Exception e) {
 				JOptionPane.showMessageDialog(null,"Sorry FIle is Currupted");
 			}
 		
 	}
-public List<String> RT() {
-  	 return XMLtitle;
+public List<String> returnTitle() {
+  	 return xmltitlelist;
    }
-   public List<String> RA() {
+   public List<String> returnAuthor() {
   	 
-  	 return XMLauthor;
+  	 return xmlauthorlist;
    }
   static int i=1;
-	public void XML_Folder(File[] file_Folder)   
+	public void folderXml(File[] files_Folder)   
 	{  
 		
-		Fs = new IFacade();
-		System.out.println(file_Folder.length);
+		facade = new IFacade();
+		System.out.println(files_Folder.length);
 	    
-		for(File S_F:file_Folder) {
+		for(File S_F:files_Folder) {
 			
 		if (S_F.isFile()) {
-			int formula=((i*100)/file_Folder.length);
-			try {
-				Thread.sleep(10);
-				i++;
-				
-			} catch (InterruptedException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
+			
 			
 			
 	try {
 	  
-		DocumentBuilderFactory DF = DocumentBuilderFactory.newInstance();  
+		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();  
 		  
-		DocumentBuilder X = DF.newDocumentBuilder();  
-		Document Fil = X.parse(S_F);  
-		Fil.getDocumentElement().normalize();  
-		NodeList List = Fil.getElementsByTagName("document");  
-			Node St = List.item(0); 
+		DocumentBuilder builder = dbf.newDocumentBuilder();  
+		Document xmlfile = builder.parse(S_F);  
+		xmlfile.getDocumentElement().normalize();  
+		NodeList List = xmlfile.getElementsByTagName("document");  
+			Node node = List.item(0); 
 	
-			if (St.getNodeType() == Node.ELEMENT_NODE)   
+			if (node.getNodeType() == Node.ELEMENT_NODE)   
 	{  
-		Element data = (Element)St;  
-		String T_Str;
-		String A_Str;
-		String P_Str;
+		Element data = (Element)node;  
+		String xmltitle;
+		String xmlauthor;
+		String xmlparagraph;
 		
-		T_Str=data.getElementsByTagName("title").item(0).getTextContent();
-		A_Str=data.getElementsByTagName("author").item(0).getTextContent();
-		P_Str=data.getElementsByTagName("section").item(0).getTextContent(); 
-		A_Str = A_Str.replaceAll("\\s+"," ").trim();
-		T_Str = T_Str.replaceAll("\\s+"," ").trim();
-		P_Str = P_Str.replaceAll("\\s+"," ").trim();
-		XMLauthor.add(A_Str);
-		XMLtitle.add(T_Str);
-		XMLpg.add(P_Str);
+		xmltitle=data.getElementsByTagName("title").item(0).getTextContent();
+		xmlauthor=data.getElementsByTagName("author").item(0).getTextContent();
+		xmlparagraph=data.getElementsByTagName("section").item(0).getTextContent(); 
+		xmlauthor = xmlauthor.replaceAll("\\s+"," ").trim();
+		xmltitle = xmltitle.replaceAll("\\s+"," ").trim();
+		xmlparagraph = xmlparagraph.replaceAll("\\s+"," ").trim();
+		xmlauthorlist.add(xmlauthor);
+		xmltitlelist.add(xmltitle);
+		xmlparagraphlist.add(xmlparagraph);
 	} 
 		}
 	catch(Exception e) {
@@ -136,12 +127,12 @@ public List<String> RT() {
 		}
 		
 		}
-		Fs.PG_Data();
+		facade.PG_Data();
 	
 }
-	public static List<String> XMLtitle=new ArrayList<String>();
-	static List<String> XMLauthor=new ArrayList<String>();
-	static List<String> XMLpg=new ArrayList<String>();
+	public static List<String> xmltitlelist=new ArrayList<String>();
+	static List<String> xmlauthorlist=new ArrayList<String>();
+	static List<String> xmlparagraphlist=new ArrayList<String>();
 	
 
    

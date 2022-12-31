@@ -23,8 +23,8 @@ public class DatabaseWord implements DatabaseWordF {
 	DataBaseConnection obj1 = DataBaseConnection.getInstance();
 	public void Word_Data() {
 		Make_Word obj = new Make_Word();
-		List<String> word_DB = word_DB = obj.Word_List();
-		List<Integer> word_Fre = word_Fre = obj.Word_Fre();
+		List<String> word_DB = word_DB = obj.returnWordList();
+		List<Integer> word_Fre = word_Fre = obj.returnFrequency();
 		word_DB2 = word_DB;
 
 		try {

@@ -23,9 +23,9 @@ public class Make_Word implements Make_WordF {
 		
 	}
 	
-	private Facade Fs=new IFacade();
-	static List<String> w_DB = new ArrayList<String>(); 
-    static List<Integer> F_DB = new ArrayList<Integer>();
+	private Facade facade=new IFacade();
+	static List<String> words = new ArrayList<String>(); 
+    static List<Integer> wordfrequency = new ArrayList<Integer>();
     
     
  
@@ -34,60 +34,61 @@ public class Make_Word implements Make_WordF {
     public void controller() {
     	
     	
-    	List<String> c1 = Fs.Word();
+    	List<String> c1 = facade.Word();
+    	List<String> c2 = wordCreator(c1);
+    	hashMapFun(c2);
+    	facade.Word_Data();
     	
-    	List<String> c2 = Word_Creator(c1);
-    	HashMap_Fun(c2);
-    	Fs.Word_Data();
     }
     
-    public void Word_Single(String Word) {
+    public void singleWord(String Word) {
     	
-    	w_DB.add(Word);
+    	words.add(Word);
     	
-    	F_DB.add(010);
-    	Fs.Word_Data();
-    	w_DB.clear();
-    	F_DB.clear();
+    	wordfrequency.add(010);
+    	facade.Word_Data();
+    	words.clear();
+    	wordfrequency.clear();
     }
+    
     
 	@SuppressWarnings("unchecked")
-	public List<String> Word_Creator(List<String> obj ) {
+	public List<String> wordCreator(List<String> obj ) {
 		
 		
 		
 		   
-   	 List<String> Word_List=new ArrayList<String>();
-        Word_List.clear();
+   	 List<String> wordlist=new ArrayList<String>();
+        wordlist.clear();
   
-   	 BreakIterator cn = BreakIterator.getWordInstance();
+   	 BreakIterator breakiterator = BreakIterator.getWordInstance();
 		for(int i=0;i<obj.size();i++) {
 			
-		String P=obj.get(i);
+		String word=obj.get(i);
 		
-	    cn.setText(P);
-	    int l1 = cn.first();
-	    while (BreakIterator.DONE != l1) {
-	        int first = l1;
-	        l1 = cn.next();
-	        if (l1 != BreakIterator.DONE && Character.isLetterOrDigit(P.charAt(first))) {
-	            Word_List.add(P.substring(first,l1));
+	    breakiterator.setText(word);
+	    int f1 = breakiterator.first();
+	    while (BreakIterator.DONE != f1) {
+	        int first = f1;
+	        f1 = breakiterator.next();
+	        if (f1 != BreakIterator.DONE && Character.isLetterOrDigit(word.charAt(first))) {
+	            wordlist.add(word.substring(first,f1));
 	        }
 	    }
 		}
 		
 		
    	 
-        return Word_List;
+        return wordlist;
         
         
     }
-	public List<String> Word_List() {
+	public List<String> returnWordList() {
 	   	 
-	   	 return w_DB;
+	   	 return words;
 	    }
 	
-	public void HashMap_Fun(List<String> word_List) {
+	public void hashMapFun(List<String> word_List) {
 		
 		
       HashMap <String,Integer>T3=new HashMap<>(); 
@@ -101,7 +102,16 @@ public class Make_Word implements Make_WordF {
             T3.put (count,1);
          } 
         }
-        for (Map.Entry<String,Integer>entry:T3.entrySet()) 
+        
+
+        hashMap2(T3);
+	}
+	
+	public void hashMap2(HashMap<String,Integer> T3) {
+		
+		
+		
+		for (Map.Entry<String,Integer>entry:T3.entrySet()) 
         {  
         	String word=entry.getKey();
         	int Key=entry.getValue();
@@ -109,32 +119,26 @@ public class Make_Word implements Make_WordF {
 
             numeric = word.matches("-?\\d+(\\.\\d+)?");
         	if(!numeric) {
-       	     w_DB.add(word);
-       	     F_DB.add(Key);
+       	     words.add(word);
+       	     wordfrequency.add(Key);
        	   
         	}
     
         }
-//        for(int i=0;i<100;i++) {
-//			
-//			String St = w_DB.get(i).replaceAll("[^a-zA-Z0-9.ءآأؤإئابةتثجحخدذرزسشصضطظعغفقكلمنهوي ]", "");
-//			  System.out.println( St);
-//		}
-          
+		
 	}
 	
-	
-    public List<Integer> Word_Fre() {
+    public List<Integer> returnFrequency() {
    	 
-   	 return F_DB;
+   	 return wordfrequency;
     }
     
-    boolean check;
+   // boolean check;
    
     
-    public void delete(boolean t) {
+    public void deleteWord(boolean t) {
     	if(t=true) {
-    		Fs.delete();
+    		facade.delete();
     	}
     	else {
 		

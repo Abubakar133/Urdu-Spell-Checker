@@ -6,13 +6,13 @@ import java.util.List;
 public class Facade implements IFacade {
 
 	view_update view;
-	ReadXML read;
+	ReadXml read;
 	Make_Word word;
 	
 	public Facade(){
 		
 		view =new view_update();
-		read=new ReadXML();
+		read=new ReadXml();
 		word=new Make_Word();
 		
 	}
@@ -24,9 +24,9 @@ public class Facade implements IFacade {
 	}
 
 	@Override
-	public void update(String word, int id, int fre) {
+	public void updateWord(String word, int id, int fre) {
 		// TODO Auto-generated method stub
-		view.update(word, id, fre);
+		view.updateWord(word, id, fre);
 	}
 
 	@Override
@@ -36,33 +36,33 @@ public class Facade implements IFacade {
 	}
 
 	@Override
-	public List<String> RP() {
+	public List<String> returnParagraph() {
 		// TODO Auto-generated method stub
-		return read.RP();
+		return read.returnParagraph();
 	}
 
 	@Override
-	public void XML_Single(File S_F) {
+	public void singleXml(File S_F) {
 		// TODO Auto-generated method stub
-		read.XML_Single(S_F);
+		read.singleXml(S_F);
 	}
 
 	@Override
-	public List<String> RT() {
+	public List<String> returnTitle() {
 		// TODO Auto-generated method stub
-		return read.RT();
+		return read.returnTitle();
 	}
 
 	@Override
-	public List<String> RA() {
+	public List<String> returnAuthor() {
 		// TODO Auto-generated method stub
-		return read.RA();
+		return read.returnAuthor();
 	}
 
 	@Override
-	public void XML_Folder(File[] file_Folder) {
+	public void folderXml(File[] file_Folder) {
 		// TODO Auto-generated method stub
-		read.XML_Folder(file_Folder);
+		read.folderXml(file_Folder);
 	}
 
 	@Override
@@ -72,39 +72,39 @@ public class Facade implements IFacade {
 	}
 
 	@Override
-	public void Word_Single(String Word) {
+	public void singleWord(String Word) {
 		// TODO Auto-generated method stub
-		word.Word_Single(Word);
+		word.singleWord(Word);
 	}
 
 	@Override
-	public List<String> Word_Creator(List<String> obj) {
+	public List<String> wordCreator(List<String> obj) {
 		// TODO Auto-generated method stub
-		return word.Word_Creator(obj);
+		return word.wordCreator(obj);
 	}
 
 	@Override
-	public List<String> Word_List() {
+	public List<String> returnWordList() {
 		// TODO Auto-generated method stub
-		return word.Word_List();
+		return word.returnWordList();
 	}
 
 	@Override
-	public void HashMap_Fun(List<String> word_List) {
+	public void hashMapFun(List<String> word_List) {
 		// TODO Auto-generated method stub
-		word.HashMap_Fun(word_List);
+		word.hashMapFun(word_List);
 	}
 
 	@Override
-	public List<Integer> Word_Fre() {
+	public List<Integer> returnFrequency() {
 		// TODO Auto-generated method stub
-		return word.Word_Fre();
+		return word.returnFrequency();
 	}
 
 	@Override
-	public void delete(boolean t) {
+	public void deleteWord(boolean t) {
 		// TODO Auto-generated method stub
-		word.delete(t);
+		word.deleteWord(t);
 	}
 
 }

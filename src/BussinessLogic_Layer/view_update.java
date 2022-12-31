@@ -9,24 +9,24 @@ import Database_Layer.Read_words;
 
 public class view_update implements view_updateF {
 	
-	private Facade Fs;
+	private Facade facade;
 	
 	public List getWords() {
-		Fs = new IFacade();
-		Fs.WordST();
+		facade = new IFacade();
+		facade.WordST();
 
-		return Fs.returnword();
+		return facade.returnword();
 
 	}
 
-	public void update(String word, int id, int fre) {
-		Fs = new IFacade();
-		Fs.update(word, id, fre);
+	public void updateWord(String word, int id, int fre) {
+		facade = new IFacade();
+		facade.update(word, id, fre);
 
 	}
 
 	public void delete(int id) {
-		Fs = new IFacade();
-		Fs.delete(id);
+		facade = new IFacade();
+		facade.delete(id);
 	}
 }
