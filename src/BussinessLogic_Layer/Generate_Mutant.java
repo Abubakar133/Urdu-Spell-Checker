@@ -8,7 +8,7 @@ import javax.swing.JOptionPane;
 import TransferData.Data_Getter;
 import TransferData.Data_Setter;
 
-public class Generate_Mutant {
+public class Generate_Mutant implements Generate_MutantsF {
 	
 
 	
@@ -37,7 +37,7 @@ public class Generate_Mutant {
 	static ArrayList<String> NewWord = new ArrayList<String>();
 	static ArrayList<Integer> NewKey = new ArrayList<Integer>();
 	
-	public static void Mutant(ArrayList<String> words,ArrayList<Integer> Key ) {
+	public void Mutant(ArrayList<String> words,ArrayList<Integer> Key ) {
 		System.out.println(words.size());
 		ArrayList<String> Alif = new ArrayList<String>();
 		ArrayList<String> CH = new ArrayList<String>();
@@ -102,7 +102,7 @@ public class Generate_Mutant {
 		Alif.add("و");  CH.add("وھ");         //42
 		Alif.add("ی");  CH.add("یھ");         //43		
 		
-		for(int i=0;i<500;i++) {
+		for(int i=0;i<20;i++) {
 		String word=words.get(i);
 		int K=Key.get(i);
 		ArrayList<String> wor = new ArrayList<String>();

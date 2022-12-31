@@ -10,7 +10,6 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -22,6 +21,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.ScrollPaneConstants;
+import javax.swing.SwingConstants;
 import javax.swing.UIManager;
 import javax.swing.UIManager.LookAndFeelInfo;
 import javax.swing.UnsupportedLookAndFeelException;
@@ -34,6 +34,9 @@ import javax.swing.table.TableRowSorter;
 import BussinessLogic_Layer.FacadeBussiness;
 import BussinessLogic_Layer.IFacadeBussiness;
 import javax.swing.ImageIcon;
+import javax.swing.JProgressBar;
+import java.awt.Window.Type;
+import java.awt.Toolkit;
 
 public class ViewAndUpdate extends JFrame {
 
@@ -48,6 +51,7 @@ public class ViewAndUpdate extends JFrame {
 	JRadioButton deletebtn;
 	JRadioButton searchbtn;
 	JRadioButton clearbtn;
+	JProgressBar progressBar;
 	
 	List words = new ArrayList();
 	boolean T = false;
@@ -87,6 +91,10 @@ public class ViewAndUpdate extends JFrame {
 	 * Create the frame.
 	 */
 	public ViewAndUpdate() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(ViewAndUpdate.class.getResource("/images/Grey Minimal Modern Magic School Wisdom Spells Logo (3) (1).png")));
+		setResizable(false);
+		setType(Type.POPUP);
+		setAlwaysOnTop(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 838, 621);
 		contentPane = new JPanel();
@@ -103,7 +111,7 @@ public class ViewAndUpdate extends JFrame {
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 		scrollPane.setViewportBorder(new LineBorder(new Color(0, 0, 0), 1, true));
-		scrollPane.setBounds(26, 35, 551, 478);
+		scrollPane.setBounds(29, 33, 548, 480);
 		contentPane.add(scrollPane);
 
 		tableData = new JTable();
@@ -174,7 +182,8 @@ public class ViewAndUpdate extends JFrame {
 				}
 				tableData.setModel(defaultmodel);
 				
-				
+				progressBar.setValue(100);
+				progressBar.setString("Data Retrived Successfully");
 
 			}
 
@@ -228,6 +237,9 @@ public class ViewAndUpdate extends JFrame {
 
 				if(insertbtn.isSelected()) {
 				fasad.singleWord(textFieldword.getText());
+				
+				progressBar.setValue(100);
+				progressBar.setString("insert Successfully");
 				}
 				else {
 					
@@ -249,6 +261,10 @@ public class ViewAndUpdate extends JFrame {
 				int id = Integer.parseInt(textFieldID.getText());
 				int fre = Integer.parseInt(textField_freq.getText());
 				fasad.updateWord(textFieldword.getText(), id, fre);
+				
+				progressBar.setValue(100);
+				progressBar.setString("Updated Successfully");
+				
 				}
 				else {
 					
@@ -269,6 +285,9 @@ public class ViewAndUpdate extends JFrame {
                   if(deletebtn.isSelected()) {
 				int id = Integer.parseInt(textFieldID.getText());
 				fasad.delete(id);
+				
+				progressBar.setValue(100);
+				progressBar.setString("Deleted Successfully");
                   }
                   else {
                 	  
@@ -294,6 +313,9 @@ public class ViewAndUpdate extends JFrame {
 				textFieldword.setText("");
 				textField_freq.setText("");
 				textFieldID.setText("");
+				
+				progressBar.setValue(100);
+				progressBar.setString("Clear Successfully");
 
 			}
 		});
@@ -374,6 +396,8 @@ public class ViewAndUpdate extends JFrame {
 				} catch (NumberFormatException e1) {
 
 				}
+				progressBar.setValue(100);
+				progressBar.setString("Search Successfully");
 			}
 			
 			else {
@@ -437,7 +461,7 @@ public class ViewAndUpdate extends JFrame {
 			}
 		});
 		btnNewButton_2.setFont(new Font("Tahoma", Font.BOLD, 14));
-		btnNewButton_2.setBounds(671, 47, 104, 32);
+		btnNewButton_2.setBounds(686, 112, 104, 32);
 		contentPane.add(btnNewButton_2);
 
 		insertbtn.addAncestorListener(null);
@@ -450,6 +474,16 @@ public class ViewAndUpdate extends JFrame {
 		textFieldID.setText("///");
 		textField_freq.setText("///");
 		
+	    progressBar = new JProgressBar(SwingConstants.VERTICAL);
+		progressBar.setBounds(6, 338, 22, 174);
+		contentPane.add(progressBar);
+		progressBar.setStringPainted(true);
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon(ViewAndUpdate.class.getResource("/images/Grey Minimal Modern Magic School Wisdom Spells Logo (3) (1).png")));
+		lblNewLabel.setBounds(709, 20, 81, 73);
+		contentPane.add(lblNewLabel);
+		
 		 		insertbtn.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
@@ -461,7 +495,9 @@ public class ViewAndUpdate extends JFrame {
 				textFieldID.setText("///");
 				textFieldword.setText("");
 				textField_freq.setText("///");
-
+				
+				progressBar.setValue(00);
+				progressBar.setString("");
 			}
 
 		});
@@ -475,6 +511,8 @@ public class ViewAndUpdate extends JFrame {
 				textFieldID.setText("");
 				textFieldword.setText("");
 				textField_freq.setText("");
+				progressBar.setValue(00);
+				progressBar.setString("");
 
 			}
 
@@ -489,8 +527,10 @@ public class ViewAndUpdate extends JFrame {
 				textFieldID.setText("");
 				textFieldword.setText("///");
 				textField_freq.setText("///");
-
-
+				
+				progressBar.setValue(00);
+				progressBar.setString("");
+				
 			}
 
 		});
@@ -504,6 +544,11 @@ public class ViewAndUpdate extends JFrame {
 				textFieldID.setText("");
 				textFieldword.setText("");
 				textField_freq.setText("");
+				
+				progressBar.setValue(00);
+				progressBar.setString("");
+				
+				
 
 
 			}
@@ -520,7 +565,8 @@ public class ViewAndUpdate extends JFrame {
 				textFieldword.setText("///");
 				textField_freq.setText("///");
 
-
+				progressBar.setValue(00);
+				progressBar.setString("");
 			}
 
 		});
@@ -544,6 +590,4 @@ public class ViewAndUpdate extends JFrame {
 			}
 		});
 	}
-	
-	
 }

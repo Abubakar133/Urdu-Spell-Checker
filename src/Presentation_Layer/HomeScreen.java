@@ -15,6 +15,8 @@ import javax.swing.UIManager.LookAndFeelInfo;
 import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.border.EmptyBorder;
 import javax.swing.ImageIcon;
+import java.awt.Window.Type;
+import java.awt.Toolkit;
 
 public class HomeScreen extends JFrame {
 
@@ -54,6 +56,10 @@ public class HomeScreen extends JFrame {
 	 */
 	public HomeScreen() {
 		super();
+		setIconImage(Toolkit.getDefaultToolkit().getImage(HomeScreen.class.getResource("/images/Grey Minimal Modern Magic School Wisdom Spells Logo (3) (1).png")));
+		setType(Type.POPUP);
+		setResizable(false);
+		setAlwaysOnTop(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 636, 355);
 		contentPane = new JPanel();
@@ -92,7 +98,7 @@ public class HomeScreen extends JFrame {
 				
 			}
 		});
-		btnNewButton_1.setBounds(245, 175, 130, 21);
+		btnNewButton_1.setBounds(245, 263, 130, 21);
 		contentPane.add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("Check Text");
@@ -104,7 +110,7 @@ public class HomeScreen extends JFrame {
 				
 			}
 		});
-		btnNewButton_2.setBounds(245, 219, 130, 21);
+		btnNewButton_2.setBounds(245, 217, 130, 21);
 		contentPane.add(btnNewButton_2);
 		
 		JButton btnViewWordTable = new JButton("view Word Table");
@@ -120,7 +126,7 @@ public class HomeScreen extends JFrame {
 			}
 		});
 		btnViewWordTable.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnViewWordTable.setBounds(245, 265, 130, 21);
+		btnViewWordTable.setBounds(245, 170, 130, 21);
 		contentPane.add(btnViewWordTable);
 		
 		JLabel lblNewLabel_1 = new JLabel("New label");

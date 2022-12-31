@@ -25,6 +25,8 @@ import javax.swing.border.EmptyBorder;
 import BussinessLogic_Layer.FacadeBussiness;
 import BussinessLogic_Layer.IFacadeBussiness;
 import javax.swing.ImageIcon;
+import java.awt.Toolkit;
+import java.awt.Window.Type;
 
 public class UploadWord extends JFrame {
 
@@ -71,8 +73,10 @@ public class UploadWord extends JFrame {
 	 * Create the frame.
 	 */
 	public UploadWord() {
-		setBackground(new Color(192, 192, 192));
 		setType(Type.POPUP);
+		setResizable(false);
+		setIconImage(Toolkit.getDefaultToolkit().getImage(UploadWord.class.getResource("/images/Grey Minimal Modern Magic School Wisdom Spells Logo (3) (1).png")));
+		setBackground(new Color(192, 192, 192));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 848, 450);
 		contentpane = new JPanel();
@@ -88,7 +92,8 @@ public class UploadWord extends JFrame {
 		textfield_address.setBounds(451, 145, 155, 31);
 		contentpane.add(textfield_address);
 		textfield_address.setColumns(10);
-		
+		//progressBar.setValue(1);
+		//progressBar.setString("Hy");
 		
 		JButton btnNewButton = new JButton("Browser");
 		btnNewButton.setIcon(new ImageIcon(UploadWord.class.getResource("/images/Search-icon (1).png")));
@@ -98,6 +103,7 @@ public class UploadWord extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				progressBar.setValue(1);
+				progressBar.setString("please wait .....");
 				JFileChooser Chooser = new JFileChooser();
 				int response=Chooser.showOpenDialog(null);
 				if(response==JFileChooser.APPROVE_OPTION) {
@@ -106,6 +112,8 @@ public class UploadWord extends JFrame {
 					textField_filename.setText(fileobj.getName());
 					progressBar.setForeground(Color.green);
 					progressBar.setValue(100);
+					//progressBar.setValue(00);
+					progressBar.setString("File Browsed Successfully");
 				}
 			}
 		});
@@ -124,7 +132,9 @@ public class UploadWord extends JFrame {
 					
 				if(field.isEmpty()&&fileobj==null) {
 					JOptionPane.showMessageDialog(null,"Please Select Something");
+					
 					progressBar.setValue(1);
+					progressBar.setString("Please wait ......");
 				}
 				
 				else if((field.isEmpty())) {
@@ -134,6 +144,7 @@ public class UploadWord extends JFrame {
 					facad.singleXml(fileobj);
 					textfield_address.setText("");	
 					progressBar.setValue(100);
+					progressBar.setString("Paragraph uploded Successfully");
                 	}
 
                 else  {
@@ -141,6 +152,7 @@ public class UploadWord extends JFrame {
                 	if((field1.isEmpty())){
                 		JOptionPane.showMessageDialog(null,"Please Select Something");
                 		progressBar.setValue(1);
+                		progressBar.setString("Please wait ......");
                 	}
                 	else {
                 	fileobj=null;
@@ -165,9 +177,10 @@ public class UploadWord extends JFrame {
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				progressBar.setValue(1);
-				
+				progressBar.setString("please wait .....");
 				facad.controller();
 				progressBar.setValue(100);
+				progressBar.setString("Words Generated Successfully");
 			}
 		});
 		btnNewButton_2.setBounds(55, 238, 149, 41);
@@ -188,12 +201,15 @@ public class UploadWord extends JFrame {
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				progressBar.setValue(1);
+				progressBar.setString("please wait.....");
 				if(rdbtnNewRadioButton.isSelected()) {
 				String Word=textField_getword .getText();
 
                    
 				facad.singleWord(Word);
 				progressBar.setValue(100);
+				
+				progressBar.setString("Words Uploded Successfully");
 				}
 				else {
 					JOptionPane.showMessageDialog(null,"Please Select Button"); 
@@ -240,10 +256,12 @@ public class UploadWord extends JFrame {
 		btnNewButton_5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				
+				progressBar.setValue(1);
+				progressBar.setString("Please wait .....");
 				
 				facad.deleteWord(true);
 				progressBar.setValue(100);
+				progressBar.setString("Words Deleted Successfully");
 				
 			}
 		});
@@ -252,7 +270,7 @@ public class UploadWord extends JFrame {
 		
 		 progressBar = new JProgressBar();
 		progressBar.setFont(new Font("Tahoma", Font.BOLD, 10));
-		progressBar.setBounds(289, 361, 264, 21);
+		progressBar.setBounds(289, 361, 261, 21);
 		contentpane.add(progressBar);
 		progressBar.setValue(0);
 		progressBar.setOpaque(true);
@@ -274,6 +292,11 @@ public class UploadWord extends JFrame {
 		btnNewButton_4.setFont(new Font("Tahoma", Font.BOLD, 14));
 		btnNewButton_4.setBounds(675, 39, 117, 31);
 		contentpane.add(btnNewButton_4);
+		
+		JLabel lblNewLabel_4 = new JLabel("");
+		lblNewLabel_4.setIcon(new ImageIcon(UploadWord.class.getResource("/images/Grey Minimal Modern Magic School Wisdom Spells Logo (3) (1).png")));
+		lblNewLabel_4.setBounds(41, 16, 87, 69);
+		contentpane.add(lblNewLabel_4);
 		
 		
 

@@ -43,7 +43,7 @@ public class DatabaseWord implements DatabaseWordF {
 				}
 
 			}
-			JOptionPane.showMessageDialog(null, "Word Sent Successfully in Database");
+			//JOptionPane.showMessageDialog(null, "Word Sent Successfully in Database");
 			test = true;
 			
 		} catch (SQLException e) {

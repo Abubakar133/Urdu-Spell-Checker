@@ -5,7 +5,6 @@ import java.awt.Font;
 import java.awt.SystemColor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -21,11 +20,15 @@ import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.border.LineBorder;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+import BussinessLogic_Layer.FacadeBussiness;
+import BussinessLogic_Layer.IFacadeBussiness;
 
-import BussinessLogic_Layer.CHeck_Words;
+//import BussinessLogic_Layer.CHeck_Words;
 //import LogicLayer.UrduString;
 
 import javax.swing.ImageIcon;
+import java.awt.Window.Type;
+import java.awt.Toolkit;
 
 @SuppressWarnings("serial")
 public class Hilight extends JFrame {
@@ -38,6 +41,8 @@ public class Hilight extends JFrame {
 	JComboBox comboBox;
 	static Hilight frame = new Hilight();
 	private JComboBox comboBox_1;
+	
+	private IFacadeBussiness fasad =new FacadeBussiness();
 
 	/**
 	 * Launch the application.
@@ -73,6 +78,10 @@ public class Hilight extends JFrame {
 	 * Create the frame.
 	 */
 	public Hilight() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Hilight.class.getResource("/images/Grey Minimal Modern Magic School Wisdom Spells Logo (3) (1).png")));
+		setAlwaysOnTop(true);
+		setType(Type.POPUP);
+		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 990, 666);
 		contentPane = new JPanel();
@@ -110,13 +119,13 @@ public class Hilight extends JFrame {
 				comboBox_1.removeAllItems();
 				
 				textArea_1.setText(textArea.getText());
-				CHeck_Words obj=new CHeck_Words();
 				
-				obj.String_Breaker(textArea.getText());
-				if(obj.check_List()) {
-				obj.Hilight(textArea_1,1);
-				obj.Hilight2(textArea_1,comboBox);
-				String Nword=obj.Word((String) comboBox.getSelectedItem());
+				
+				fasad.String_Breaker(textArea.getText());
+				if(fasad.check_List()) {
+					fasad.Hilight(textArea_1,1);
+					fasad.Hilight2(textArea_1,comboBox);
+				String Nword=fasad.Word((String) comboBox.getSelectedItem());
 				comboBox_1.addItem(Nword);
 				
 				}
@@ -183,16 +192,16 @@ public class Hilight extends JFrame {
 		      		
 					comboBox_1.removeAllItems();
 					
-					CHeck_Words obj=new CHeck_Words();
-					String Nword=obj.Word((String) comboBox.getSelectedItem());
+					
+					String Nword=fasad.Word((String) comboBox.getSelectedItem());
 					comboBox_1.addItem(Nword);
-					obj.String_Breaker2(textArea_1.getText(),(String) comboBox.getSelectedItem(),Nword);
-					obj.setTextArea(textArea_1);
+					fasad.String_Breaker2(textArea_1.getText(),(String) comboBox.getSelectedItem(),Nword);
+					fasad.setTextArea(textArea_1);
 					comboBox.removeAllItems();
 					
-					if(obj.check_List()) {
-						obj.Hilight(textArea_1,2);
-						obj.Hilight2(textArea_1,comboBox);
+					if(fasad.check_List()) {
+						fasad.Hilight(textArea_1,2);
+						fasad.Hilight2(textArea_1,comboBox);
 						
 						}
 						else {
@@ -250,8 +259,8 @@ public class Hilight extends JFrame {
 		            
 		            {      
 		            	comboBox_1.removeAllItems();
-		            	CHeck_Words obj=new CHeck_Words();
-		            	String Nword=obj.Word((String) comboBox.getSelectedItem());
+		            	
+		            	String Nword=fasad.Word((String) comboBox.getSelectedItem());
 						comboBox_1.addItem(Nword);
 
 		            }

@@ -6,7 +6,6 @@ import java.awt.Font;
 import java.awt.SystemColor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -17,8 +16,13 @@ import javax.swing.UIManager.LookAndFeelInfo;
 import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.border.EmptyBorder;
 
-import BussinessLogic_Layer.Generate_Mutant;
+import BussinessLogic_Layer.FacadeBussiness;
+import BussinessLogic_Layer.IFacadeBussiness;
+
+//import BussinessLogic_Layer.Generate_Mutant;
 import javax.swing.ImageIcon;
+import java.awt.Window.Type;
+import java.awt.Toolkit;
 
 @SuppressWarnings("serial")
 public class Mutants extends JFrame {
@@ -26,6 +30,8 @@ public class Mutants extends JFrame {
 	private JPanel contentPane;
 	static Mutants frame= new Mutants();
 	JProgressBar progressBar;
+	
+	private IFacadeBussiness fasad =new FacadeBussiness();
 	/**
 	 * Launch the application.
 	 */
@@ -58,6 +64,10 @@ public class Mutants extends JFrame {
 	 * Create the frame.
 	 */
 	public Mutants() {
+		setAlwaysOnTop(true);
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Mutants.class.getResource("/images/Grey Minimal Modern Magic School Wisdom Spells Logo (3) (1).png")));
+		setResizable(false);
+		setType(Type.POPUP);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 687, 471);
 		contentPane = new JPanel();
@@ -66,7 +76,7 @@ public class Mutants extends JFrame {
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		Generate_Mutant obj=new Generate_Mutant();
+		
 		
 		progressBar = new JProgressBar();
 		progressBar.setFont(new Font("Tahoma", Font.BOLD, 10));
@@ -84,7 +94,7 @@ public class Mutants extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 							
 				progressBar.setValue(1);
-				obj.Get_Words();
+				fasad.Get_Words();
 				//progressBar.setValue();
 				//progressBar.setValue(50);
 				//obj.Insert_DB();
@@ -100,7 +110,7 @@ public class Mutants extends JFrame {
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				progressBar.setValue(0);
-				obj.Insert_DB();
+				fasad.Insert_DB();
 				progressBar.setValue(100);
 			}
 		});
