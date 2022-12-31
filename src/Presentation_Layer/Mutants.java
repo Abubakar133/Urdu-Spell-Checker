@@ -97,7 +97,7 @@ public class Mutants extends JFrame {
 				fasad.Get_Words();
 				//progressBar.setValue();
 				//progressBar.setValue(50);
-				//obj.Insert_DB();
+				fasad.Insert_DB();
 				progressBar.setValue(100);
 			}
 		});
