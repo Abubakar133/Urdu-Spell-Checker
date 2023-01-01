@@ -21,13 +21,13 @@ public class Generate_Mutant implements Generate_MutantsF {
 	static ArrayList<String> newList = new ArrayList<String>();
 	public void Get_Words() {
 		word1=obj2.GET_Word();
-		Key=obj2.GET_Key();
-		Mutant(word1,Key);
+		id=obj2.GET_Key();
+		Mutant(word1,id);
 		
 		
 		
 	}
-	ArrayList<Integer> Key = new ArrayList<Integer>();
+	ArrayList<Integer> id = new ArrayList<Integer>();
 	public void Insert_DB() {
 		
 		Data_Setter obj=new Data_Setter();
