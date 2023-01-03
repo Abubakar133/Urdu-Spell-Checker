@@ -8,21 +8,21 @@ import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
-import TransferData.Data_Setter;
+import TransferData.DataSetter;
 
 public class MutantDatabase {
 	
 	static ArrayList<String> NewWord = new ArrayList<String>();
 	static ArrayList<Integer> NewKey = new ArrayList<Integer>();
-	Data_Setter obj=new Data_Setter();
+	DataSetter obj=new DataSetter();
 	Connection con;
 	DataBaseConnection obj1 = DataBaseConnection.getInstance();
 	public void getNWord() {
-		  NewWord=obj.Set_Word(); 
+		  NewWord=obj.setWord(); 
 		  
 		  } 
 	  public void getNKey() {
-	  NewKey=obj.Set_Key();
+	  NewKey=obj.setKey();
 	  }
 	  
 	  public void insertData() {

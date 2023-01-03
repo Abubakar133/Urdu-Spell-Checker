@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import TransferData.Data_Getter;
-import TransferData.Data_Setter;
+import TransferData.DataSetter;
 
 public class DataBase {
 	Connection con;

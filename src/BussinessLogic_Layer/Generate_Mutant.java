@@ -6,7 +6,7 @@ import java.util.Collections;
 import javax.swing.JOptionPane;
 
 import TransferData.Data_Getter;
-import TransferData.Data_Setter;
+import TransferData.DataSetter;
 
 public class Generate_Mutant implements Generate_MutantsF {
 	
@@ -30,8 +30,8 @@ public class Generate_Mutant implements Generate_MutantsF {
 	ArrayList<Integer> id = new ArrayList<Integer>();
 	public void Insert_DB() {
 		
-		Data_Setter obj=new Data_Setter();
-		obj.Insert_DB();
+		DataSetter obj=new DataSetter();
+		obj.insertDB();
 		
 	}
 	static ArrayList<String> NewWord = new ArrayList<String>();
