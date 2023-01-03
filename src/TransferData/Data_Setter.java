@@ -3,7 +3,7 @@ package TransferData;
 import java.util.ArrayList;
 
 import BussinessLogic_Layer.Generate_Mutant;
-import Database_Layer.Insert_to_Database;
+import Database_Layer.MutantDatabase;
 
 public class Data_Setter {
 	Generate_Mutant obj2=new Generate_Mutant();
@@ -20,8 +20,8 @@ public class Data_Setter {
 		  
 	  }
 	  public void Insert_DB() {
-		  Insert_to_Database obj=new Insert_to_Database();
-		  obj.Insert_Data();
+		  MutantDatabase obj=new MutantDatabase();
+		  obj.insertData();
 		  
 		  
 	  }

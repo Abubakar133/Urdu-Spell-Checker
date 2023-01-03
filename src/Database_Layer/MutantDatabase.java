@@ -10,24 +10,24 @@ import javax.swing.JOptionPane;
 
 import TransferData.Data_Setter;
 
-public class Insert_to_Database {
+public class MutantDatabase {
 	
 	static ArrayList<String> NewWord = new ArrayList<String>();
 	static ArrayList<Integer> NewKey = new ArrayList<Integer>();
 	Data_Setter obj=new Data_Setter();
 	Connection con;
 	DataBaseConnection obj1 = DataBaseConnection.getInstance();
-	public void get_NWord() {
+	public void getNWord() {
 		  NewWord=obj.Set_Word(); 
 		  
 		  } 
-	  public void Get_NKey() {
+	  public void getNKey() {
 	  NewKey=obj.Set_Key();
 	  }
 	  
-	  public void Insert_Data() {
-		  get_NWord();
-		  Get_NKey();
+	  public void insertData() {
+		  getNWord();
+		  getNKey();
 		  
 		  
 	  String str = ""; 
