@@ -27,7 +27,7 @@ public class Generate_Mutant implements Generate_MutantsF {
 		
 		
 	}
-	ArrayList<Integer> id = new ArrayList<Integer>();
+	ArrayList<Integer> id = new  ArrayList<Integer>();
 	public void Insert_DB() {
 		
 		DataSetter obj=new DataSetter();
