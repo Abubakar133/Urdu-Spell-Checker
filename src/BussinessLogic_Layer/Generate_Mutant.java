@@ -10,12 +10,6 @@ import TransferData.DataSetter;
 
 public class Generate_Mutant implements Generate_MutantsF {
 	
-
-	
-	
-	
-	
-	
 	Data_Getter obj2=new Data_Getter();
 	ArrayList<String> word1 = new ArrayList<String>();
 	static ArrayList<String> newList = new ArrayList<String>();
@@ -23,8 +17,6 @@ public class Generate_Mutant implements Generate_MutantsF {
 		word1=obj2.GET_Word();
 		id=obj2.GET_Key();
 		Mutant(word1,id);
-		
-		
 		
 	}
 	ArrayList<Integer> id = new  ArrayList<Integer>();
@@ -127,12 +119,12 @@ public class Generate_Mutant implements Generate_MutantsF {
 		
 		int fre=0;
 		for(int j=0;j<wor.size();j++) {
-			int f;
+			int frequencyword;
 			f=Collections.frequency(Alif, wor.get(j));
 			
-			if(f>fre) {
+			if(frequencyword>fre) {
 				
-				fre=f;
+				fre=frequencyword;
 			}
 			
 			
