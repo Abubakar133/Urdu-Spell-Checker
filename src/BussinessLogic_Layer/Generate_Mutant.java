@@ -107,10 +107,6 @@ public class Generate_Mutant implements Generate_MutantsF {
 		int K=Key.get(i);
 		ArrayList<String> wor = new ArrayList<String>();
 		
-		////////////////////////////////
-		////////////////////////////////////////
-		////////////////////////////////////
-		//////////////////////////////
 		
 		String[] str = word.split("(?!^)");
 		int count=0;
@@ -127,14 +123,7 @@ public class Generate_Mutant implements Generate_MutantsF {
 		ArrayList<Integer> exists = new ArrayList<Integer>();
 		ArrayList<Integer> dont = new ArrayList<Integer>();
 		
-				
-
 		
-		//////////////////////////////////////
-		
-		///////////////Code in run Able form////////////////
-		
-		////////////////////////////////////////
 		
 		int fre=0;
 		for(int j=0;j<wor.size();j++) {
@@ -254,8 +243,7 @@ public class Generate_Mutant implements Generate_MutantsF {
 		
 		
 		
-//////////////////////////////////////////////////
-		
+
 		
 	}
 	
