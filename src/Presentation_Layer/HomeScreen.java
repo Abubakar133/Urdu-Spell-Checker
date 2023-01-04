@@ -59,7 +59,6 @@ public class HomeScreen extends JFrame {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(HomeScreen.class.getResource("/images/Grey Minimal Modern Magic School Wisdom Spells Logo (3) (1).png")));
 		setType(Type.POPUP);
 		setResizable(false);
-		setAlwaysOnTop(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 636, 355);
 		contentPane = new JPanel();

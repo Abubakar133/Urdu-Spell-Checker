@@ -94,7 +94,6 @@ public class ViewAndUpdate extends JFrame {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(ViewAndUpdate.class.getResource("/images/Grey Minimal Modern Magic School Wisdom Spells Logo (3) (1).png")));
 		setResizable(false);
 		setType(Type.POPUP);
-		setAlwaysOnTop(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 838, 621);
 		contentPane = new JPanel();

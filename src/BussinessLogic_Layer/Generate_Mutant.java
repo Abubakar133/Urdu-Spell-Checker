@@ -23,10 +23,9 @@ public class Generate_Mutant implements Generate_MutantsF {
 		word1=obj2.GET_Word();
 		Key=obj2.GET_Key();
 		Mutant(word1,Key);
-		
-		
-		
 	}
+	
+	
 	ArrayList<Integer> Key = new ArrayList<Integer>();
 	public void Insert_DB() {
 		

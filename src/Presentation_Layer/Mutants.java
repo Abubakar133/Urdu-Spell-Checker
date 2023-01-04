@@ -64,7 +64,6 @@ public class Mutants extends JFrame {
 	 * Create the frame.
 	 */
 	public Mutants() {
-		setAlwaysOnTop(true);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Mutants.class.getResource("/images/Grey Minimal Modern Magic School Wisdom Spells Logo (3) (1).png")));
 		setResizable(false);
 		setType(Type.POPUP);
@@ -93,11 +92,11 @@ public class Mutants extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 							
-				progressBar.setValue(1);
+				progressBar.setValue(0);
 				fasad.Get_Words();
 				//progressBar.setValue();
 				//progressBar.setValue(50);
-				fasad.Insert_DB();
+				//fasad.Insert_DB();
 				progressBar.setValue(100);
 			}
 		});

@@ -79,7 +79,6 @@ public class Hilight extends JFrame {
 	 */
 	public Hilight() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Hilight.class.getResource("/images/Grey Minimal Modern Magic School Wisdom Spells Logo (3) (1).png")));
-		setAlwaysOnTop(true);
 		setType(Type.POPUP);
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
