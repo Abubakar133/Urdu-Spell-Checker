@@ -6,31 +6,33 @@ import java.util.Collections;
 import javax.swing.JOptionPane;
 
 import TransferData.Data_Getter;
-import TransferData.Data_Setter;
+import TransferData.DataSetter;
 
 public class Generate_Mutant implements Generate_MutantsF {
-	
-
-	
-	
-	
-	
 	
 	Data_Getter obj2=new Data_Getter();
 	ArrayList<String> word1 = new ArrayList<String>();
 	static ArrayList<String> newList = new ArrayList<String>();
 	public void Get_Words() {
 		word1=obj2.GET_Word();
+<<<<<<< HEAD
 		Key=obj2.GET_Key();
 		Mutant(word1,Key);
 	}
 	
 	
 	ArrayList<Integer> Key = new ArrayList<Integer>();
+=======
+		id=obj2.GET_Key();
+		Mutant(word1,id);
+		
+	}
+	ArrayList<Integer> id = new  ArrayList<Integer>();
+>>>>>>> b3dbe322483871acb8750d30e0922a9990382103
 	public void Insert_DB() {
 		
-		Data_Setter obj=new Data_Setter();
-		obj.Insert_DB();
+		DataSetter obj=new DataSetter();
+		obj.insertDB();
 		
 	}
 	static ArrayList<String> NewWord = new ArrayList<String>();
@@ -106,10 +108,6 @@ public class Generate_Mutant implements Generate_MutantsF {
 		int K=Key.get(i);
 		ArrayList<String> wor = new ArrayList<String>();
 		
-		////////////////////////////////
-		////////////////////////////////////////
-		////////////////////////////////////
-		//////////////////////////////
 		
 		String[] str = word.split("(?!^)");
 		int count=0;
@@ -126,23 +124,16 @@ public class Generate_Mutant implements Generate_MutantsF {
 		ArrayList<Integer> exists = new ArrayList<Integer>();
 		ArrayList<Integer> dont = new ArrayList<Integer>();
 		
-				
-
 		
-		//////////////////////////////////////
-		
-		///////////////Code in run Able form////////////////
-		
-		////////////////////////////////////////
 		
 		int fre=0;
 		for(int j=0;j<wor.size();j++) {
-			int f;
+			int frequencyword;
 			f=Collections.frequency(Alif, wor.get(j));
 			
-			if(f>fre) {
+			if(frequencyword>fre) {
 				
-				fre=f;
+				fre=frequencyword;
 			}
 			
 			
@@ -253,8 +244,7 @@ public class Generate_Mutant implements Generate_MutantsF {
 		
 		
 		
-//////////////////////////////////////////////////
-		
+
 		
 	}
 	

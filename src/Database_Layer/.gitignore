@@ -1,0 +1,15 @@
+/DataBase.class
+/DataBaseConnection.class
+/DatabaseParagraph.class
+/DatabaseParagraphF.class
+/DatabaseRetriveParagraph.class
+/DatabaseRetriveParagraphF.class
+/DatabaseWord.class
+/DatabaseWordF.class
+/FacadeDatabase.class
+/IFacadeDatabase.class
+/Insert_to_Database.class
+/ReadWords.class
+/ReadWordsF.class
+/Text_Read.class
+/MutantDatabase.class
